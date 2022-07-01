@@ -39,7 +39,20 @@ class Solution{
     // Function to find the trapped water between the blocks.
     static long trappingWater(int height[], int n) { 
         // Your code here
-        //int n = height.length;
+        // n^2, 1
+//         int ans = 0;
+        
+//         for(int i=1;i<height.length; i++) {
+//             int lh =0, rh=0;
+//             for(int j=i; j>=0; j--) lh = Math.max(lh, height[j]);
+//             for(int j=i; j<height.length;j++) rh = Math.max(rh, height[j]);
+            
+//             ans += Math.min(lh,rh) - height[i];
+//         }
+//         return ans;
+        
+        
+        // n, n
         int[] left = new int[n];
         int[] right = new int[n];
         left[0] = height[0];
