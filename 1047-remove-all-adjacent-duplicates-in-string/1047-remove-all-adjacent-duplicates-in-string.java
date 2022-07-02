@@ -1,6 +1,7 @@
 class Solution {
     public String removeDuplicates(String s) {
-        Stack<Character> ch = new Stack<>();
+        Deque<Character> ch = new ArrayDeque<>();
+//        Stack<Character> ch = new Stack<>();
         for(int i=s.length()-1; i>=0; i--) {
             if(!ch.isEmpty() && s.charAt(i) == ch.peek()) {
                 ch.pop();
@@ -10,7 +11,8 @@ class Solution {
         }
         StringBuilder result = new StringBuilder();
         while(!ch.isEmpty()){
-            result.append(ch.pop());
+            result.append(ch.removeFirst());
+//            result.append(ch.pop());
         }
         return result.toString();
     }
