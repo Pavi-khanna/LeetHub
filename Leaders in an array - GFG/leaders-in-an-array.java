@@ -75,6 +75,7 @@ class Solution{
         // return res;
         
         
+        // n, 1
         ArrayList<Integer> res = new ArrayList<>();
         int rightMax = arr[n-1];
         res.add(rightMax);
@@ -82,7 +83,18 @@ class Solution{
             if(arr[i] >= rightMax) res.add(arr[i]);
             rightMax = Math.max(rightMax, arr[i]);
         }
-        Collections.reverse(res);
+        // Collections.reverse(res);
+        reverseList(res);
         return res;
+    }
+    
+    public static void reverseList(ArrayList<Integer> list) {
+        int n = list.size();
+        
+        for(int i=0; i<list.size()/2; i++) {
+            int temp = list.get(i);
+            list.set(i, list.get(n-i-1));
+            list.set(n-i-1, temp);
+        }
     }
 }
