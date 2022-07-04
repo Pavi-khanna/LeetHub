@@ -62,15 +62,27 @@ class Solution{
         // return res;
         
         
-        Stack<Integer> stack = new Stack<>();
+        // n, n (o/p in order)
+        // Stack<Integer> stack = new Stack<>();
+        // ArrayList<Integer> res = new ArrayList<>();
+        // stack.push(arr[n-1]);
+        // for(int i=n-2; i>=0; i--) {
+        //     if(stack.peek() <= arr[i]) stack.push(arr[i]);
+        // }
+        // while(!stack.isEmpty()) {
+        //     res.add(stack.pop());
+        // }
+        // return res;
+        
+        
         ArrayList<Integer> res = new ArrayList<>();
-        stack.push(arr[n-1]);
+        int rightMax = arr[n-1];
+        res.add(rightMax);
         for(int i=n-2; i>=0; i--) {
-            if(stack.peek() <= arr[i]) stack.push(arr[i]);
+            if(arr[i] >= rightMax) res.add(arr[i]);
+            rightMax = Math.max(rightMax, arr[i]);
         }
-        while(!stack.isEmpty()) {
-            res.add(stack.pop());
-        }
+        Collections.reverse(res);
         return res;
     }
 }
