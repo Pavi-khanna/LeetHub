@@ -50,11 +50,20 @@ class Solution {
         
         
         // nlogn, 1
-        Arrays.sort(nums);
-        int count=0;
-        for(int i=nums.length-1; i>=0; i--) {
-            count += nums[i]-nums[0];
+        // Arrays.sort(nums);
+        // int count=0;
+        // for(int i=nums.length-1; i>=0; i--) {
+        //     count += nums[i]-nums[0];
+        // }
+        // return count;
+        
+        
+        // n, 1
+        int moves = 0, min = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            moves += nums[i];
+            min = Math.min(min, nums[i]);
         }
-        return count;
+        return moves - min * nums.length;
     }
 }
