@@ -60,41 +60,41 @@ class Solution
         
         
         // n*m, 1
-        int k;
-        for(int i=0;i<n;i++) {
-            if(arr1[i]>arr2[0]) {
-                long temp = arr1[i];
-                arr1[i] = arr2[0];
-                arr2[0] = temp;
-            }
+        // int k;
+        // for(int i=0;i<n;i++) {
+        //     if(arr1[i]>arr2[0]) {
+        //         long temp = arr1[i];
+        //         arr1[i] = arr2[0];
+        //         arr2[0] = temp;
+        //     }
             
-            long first = arr2[0];
-            for(k=1;k<m && arr2[k]<first;k++) {
-                arr2[k-1]=arr2[k];
-            }
-            arr2[k-1]=first;
-        }
+        //     long first = arr2[0];
+        //     for(k=1;k<m && arr2[k]<first;k++) {
+        //         arr2[k-1]=arr2[k];
+        //     }
+        //     arr2[k-1]=first;
+        // }
         
         
         // no of gaps*logn, 1
-        // int gap = (int)Math.ceil((double)(n+m) / 2.0);
-        // while(gap>0) {
-        //     // swap elements
-        //     int i=0, j=gap;
-        //     while(j<(n+m)) {
-        //         if(j<n && arr1[i]>arr1[j]) swap(arr1, arr1, i, j);
-        //         else if(j>=n && i<n && arr1[i]>arr2[j-n]) swap(arr1, arr2, i, j-n);
-        //         else if(j>=n && i>=n && arr2[i-n]>arr2[j-n]) swap(arr2, arr2, i-n, j-n);
+        int gap = (int)Math.ceil((double)(n+m) / 2.0);
+        while(gap>0) {
+            // swap elements
+            int i=0, j=gap;
+            while(j<(n+m)) {
+                if(j<n && arr1[i]>arr1[j]) swap(arr1, arr1, i, j);
+                else if(j>=n && i<n && arr1[i]>arr2[j-n]) swap(arr1, arr2, i, j-n);
+                else if(j>=n && i>=n && arr2[i-n]>arr2[j-n]) swap(arr2, arr2, i-n, j-n);
                 
-        //         j++;i++;
-        //     }
-        //     // re init gap
-        //     if(gap == 1) {
-        //         gap = 0;
-        //     } else {
-        //         gap =(int) Math.ceil((double)gap/2.0);
-        //     }
-        // }
+                j++;i++;
+            }
+            // re init gap
+            if(gap == 1) {
+                gap = 0;
+            } else {
+                gap =(int) Math.ceil((double)gap/2.0);
+            }
+        }
     }
     
     public static void swap(long[] a, long[] b, int i, int j) {
