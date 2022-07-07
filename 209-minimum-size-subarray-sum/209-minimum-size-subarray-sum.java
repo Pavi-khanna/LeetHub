@@ -35,14 +35,30 @@ class Solution {
         
         
         // nlogn, 1 - only for pos no array
-        int minLength = Integer.MAX_VALUE;
+//         int minLength = Integer.MAX_VALUE;
         
-        for(int i=0; i<nums.length; i++) {  // if i+1 -> 1 = int min
-            if(i>0) nums[i]+=nums[i-1];
-            if(nums[i]<target) continue;
+//         for(int i=0; i<nums.length; i++) {
+//             if(i>0) nums[i]+=nums[i-1];
+//             if(nums[i]<target) continue;
             
-            int closestIndex = binarySearch(nums, i, target);
-            minLength = Math.min(minLength, i-closestIndex+1);
+//             int closestIndex = binarySearch(nums, i, target);
+//             minLength = Math.min(minLength, i-closestIndex+1);
+//         }
+//         return minLength == Integer.MAX_VALUE ? 0 : minLength;
+        
+        
+        // 
+        int i=0, j=0, sum=0, minLength=Integer.MAX_VALUE;
+        
+        while(j < nums.length) {
+            sum += nums[j];
+            
+            while(sum >= target) {
+                minLength = Math.min(minLength, j-i+1);
+                sum -= nums[i];
+                i++;
+            }
+            j++;
         }
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
