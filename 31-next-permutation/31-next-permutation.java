@@ -1,5 +1,8 @@
 class Solution {
     public void nextPermutation(int[] nums) {
+        // power set - n!, n
+        
+        // 3n, 1
         if(nums == null || nums.length <= 1) return;
         int i = nums.length-2;
         while(i>=0 && nums[i]>=nums[i+1]) i--;     // 12323 ->  _   /\/
@@ -12,6 +15,12 @@ class Solution {
         }
         reverse(nums,i+1,nums.length-1);
         
+        // int m=0;
+        // while(m>=0 && m<nums.length-1 && nums[m]>=nums[m+1]) m++;
+        // if(m==nums.length-1) {
+        //     reverse(nums, 0, nums.length-1);
+        //     return;
+        // }
         
         // List<List<Integer>> l = permute(nums);
         // ArrayList<Integer> search = new ArrayList<>();
@@ -25,7 +34,6 @@ class Solution {
         //     c++;
         // }
         // List<Integer> finalList = new ArrayList<>();
-        // System.out.println(c);
         // if(c==nums.length && l.size()>0) {
         //     finalList = l.get(0);
         // } else finalList = l.get(c+1);
@@ -33,8 +41,6 @@ class Solution {
     }
     
     public void swap(int[] a, int i, int j) {
-        //System.out.println(a[i]+" "+a[j]);
-
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
@@ -42,7 +48,6 @@ class Solution {
     
     public void reverse(int[] a, int i, int j) {
         while(i<j) swap(a, i++,j--);
-        //System.out.println(a[i]+" "+a[j]);
     }
     
     private void recurPermute(int[] nums, List<Integer> ds,List<List<Integer>> ans, boolean[] freq) {
