@@ -49,14 +49,31 @@ class Solution
     //Function to merge the arrays.
     public static void merge(long arr1[], long arr2[], int n, int m) {
         // nlogn+n+n, n : n=n+m
-        long res[] = new long[n+m];
-        int i=0;
-        for(int j=0;j<n; j++) { res[i++] = arr1[j]; }
-        for(int j=0;j<m; j++) { res[i++] = arr2[j]; }
-        Arrays.sort(res);
-        i=0;
-        for(int j=0;j<n; j++) { arr1[j] = res[i++]; }
-        for(int j=0;j<m; j++) { arr2[j] = res[i++]; }
+        // long res[] = new long[n+m];
+        // int i=0;
+        // for(int j=0;j<n; j++) { res[i++] = arr1[j]; }
+        // for(int j=0;j<m; j++) { res[i++] = arr2[j]; }
+        // Arrays.sort(res);
+        // i=0;
+        // for(int j=0;j<n; j++) { arr1[j] = res[i++]; }
+        // for(int j=0;j<m; j++) { arr2[j] = res[i++]; }
+        
+        
+        // n*m, 1
+        int k;
+        for(int i=0;i<n;i++) {
+            if(arr1[i]>arr2[0]) {
+                long temp = arr1[i];
+                arr1[i] = arr2[0];
+                arr2[0] = temp;
+            }
+            
+            long first = arr2[0];
+            for(k=1;k<m && arr2[k]<first;k++) {
+                arr2[k-1]=arr2[k];
+            }
+            arr2[k-1]=first;
+        }
         
         
         // no of gaps*logn, 1
