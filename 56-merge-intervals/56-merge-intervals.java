@@ -14,7 +14,8 @@ class Solution {
             for(int j=i+1; j<n; j++) {
                 if(end >= intervals[j][0]) {                           // 1,4  >  3,5
                     end = Math.max(end, intervals[j][1]);              // ec : 1,4 & 2,3
-                } 
+                } else 
+                    break;
             }
             res.add(new int[]{start, end});
         }
