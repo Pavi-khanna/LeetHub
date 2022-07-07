@@ -34,7 +34,7 @@ class Solution {
         // return minLength == Integer.MAX_VALUE ? 0 : minLength;
         
         
-        // nlogn, 1 - only for pos no array
+        // nlogn, 1 - only for pos no array - binary search
 //         int minLength = Integer.MAX_VALUE;
         
 //         for(int i=0; i<nums.length; i++) {
@@ -47,7 +47,7 @@ class Solution {
 //         return minLength == Integer.MAX_VALUE ? 0 : minLength;
         
         
-        // 
+        // n, 1 - sliding window
         int i=0, j=0, sum=0, minLength=Integer.MAX_VALUE;
         
         while(j < nums.length) {
