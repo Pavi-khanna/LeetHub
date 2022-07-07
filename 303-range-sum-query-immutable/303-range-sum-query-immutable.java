@@ -1,19 +1,44 @@
 class NumArray {
-    int[] numsArray;
+    // n, 1
+    // private int[] data;
+    // 1, n^2
+    // private Map<Pair<Integer,Integer>, Integer> map = new HashMap<>();
+    // 1, n
+    private int[] sum;
 
     public NumArray(int[] nums) {
-        numsArray = new int[nums.length];
-        for(int i=0; i<nums.length; i++) {
-            numsArray[i] = nums[i];
+        // 1
+        // data = nums;
+        
+        // 2
+        // for(int i=0; i<nums.length; i++) {
+        //     int sum = 0;
+        //     for(int j=i; j<nums.length; j++) {
+        //         sum+=nums[j];
+        //         map.put(new Pair<Integer,Integer>(i,j), sum);
+        //     }
+        // }
+        
+        // 3
+        sum = new int[nums.length+1];
+        for(int i=0;i<nums.length; i++) {
+            sum[i+1] = sum[i]+nums[i];
         }
     }
     
     public int sumRange(int left, int right) {
-        int sum = 0;
-        for(int i=left; i<=right; i++) {
-            sum += numsArray[i];
-        }
-        return sum;
+        // 1
+        // int sum = 0;
+        // for(int i=left; i<=right; i++) {
+        //     sum += data[i];
+        // }
+        // return sum;
+        
+        // 2
+        // return map.get(new Pair<Integer,Integer>(left,right));
+        
+        // 3
+        return sum[right+1]-sum[left];
     }
 }
 
