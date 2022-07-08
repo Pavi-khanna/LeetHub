@@ -1,13 +1,13 @@
 class MyStack {
-    private Queue<Integer> q1;
-    private Queue<Integer> q2;
-    private int top;
+    // private Queue<Integer> q1;
+    // private Queue<Integer> q2;
+    // private int top;
     
-    // private Queue queue;
+    private Queue queue;
 
     public MyStack() {
-        q1 = new LinkedList<>();
-        q2 = new LinkedList<>();
+        // q1 = new LinkedList<>();
+        // q2 = new LinkedList<>();
         
         // queue = new LinkedList<>();
     }
@@ -17,21 +17,21 @@ class MyStack {
         // top = x;
         
         
-        q2.add(x);
-        top = x;
-        while(!q1.isEmpty()) {
-            q2.add(q1.remove());
-        }
-        Queue<Integer> temp = q1;
-        q1 = q2;
-        q2 = temp;
+        // q2.add(x);
+        // top = x;
+        // while(!q1.isEmpty()) {
+        //     q2.add(q1.remove());
+        // }
+        // Queue<Integer> temp = q1;
+        // q1 = q2;
+        // q2 = temp;
         
         
-        // Queue q = new LinkedList<>();
-        // q.add(x);
-        // q.add(queue);
-        // queue = q;
-        // System.out.println(queue);
+        Queue q = new LinkedList<>();
+        q.add(x);
+        q.add(queue);
+        queue = q;
+        System.out.println(queue);
     }
     
     public int pop() {
@@ -46,31 +46,31 @@ class MyStack {
         // return popped;
         
         
-        int popped = q1.remove();
-        if(!q1.isEmpty()) {
-            top = q1.peek();
-        }
-        return popped;
+        // int popped = q1.remove();
+        // if(!q1.isEmpty()) {
+        //     top = q1.peek();
+        // }
+        // return popped;
         
         
-        // int a = (int) queue.remove();
-        // queue = (Queue) queue.peek();
-        // System.out.println(queue);
-        // return (int) a;
+        int a = (int) queue.remove();
+        queue = (Queue) queue.peek();
+        System.out.println(queue);
+        return (int) a;
     }
     
     public int top() {
-        return top;
+        // return top;
         
         
-        // return (int) queue.peek();
+        return (int) queue.peek();
     }
     
     public boolean empty() {
-        return q1.size()==0;
+        // return q1.size()==0;
         
         
-        // return queue == null;
+        return queue == null;
     }
 }
 
