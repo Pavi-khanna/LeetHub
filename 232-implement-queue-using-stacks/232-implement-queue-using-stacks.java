@@ -8,26 +8,45 @@ class MyQueue {
     }
     
     public void push(int x) {
-        if(s1.empty()) front = x;          // only when stack is empty
-        while(!s1.isEmpty()) s2.push(s1.pop());
-        s2.push(x);
-        while(!s2.isEmpty()) s1.push(s2.pop());
+        // if(s1.empty()) front = x;          // only when stack is empty
+        // while(!s1.isEmpty()) s2.push(s1.pop());
+        // s2.push(x);
+        // while(!s2.isEmpty()) s1.push(s2.pop());
+        
+        
+        if(s1.isEmpty()) front = x;
+        s1.push(x);
     }
     
     public int pop() {
-        int num = s1.pop();
-        if(!s1.isEmpty()) {
-            front = s1.peek();
+        // int num = s1.pop();
+        // if(!s1.isEmpty()) {
+        //     front = s1.peek();
+        // }
+        // return num;
+        
+        
+        if(s2.isEmpty()) {
+            while(!s1.isEmpty()) s2.push(s1.pop());
         }
-        return num;
+        return s2.pop();
     }
     
     public int peek() {
+        // return front;
+        
+        
+        if (!s2.isEmpty()) {
+            return s2.peek();
+        }
         return front;
     }
     
     public boolean empty() {
-        return s1.isEmpty();
+        // return s1.isEmpty();
+        
+        
+        return s1.isEmpty() && s2.isEmpty();
     }
 }
 
