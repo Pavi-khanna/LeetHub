@@ -4,16 +4,17 @@ class Solution {
         
         // 3n, 1
         if(nums == null || nums.length <= 1) return;
-        int i = nums.length-2;
-        while(i>=0 && nums[i]>=nums[i+1]) i--;     // 12323 ->  _   /\/
-        // System.out.println(i);                  // 12332 -> / \
+        int inversePoint = nums.length-2;
+        while(inversePoint>=0 && nums[inversePoint]>=nums[inversePoint+1]) inversePoint--;     
+        // 12323 ->  _   /\/
+        // 12332 -> / \
         
-        if(i>=0) {
-            int j=nums.length-1;
-            while(nums[j]<=nums[i]) j--;
-            swap(nums,i,j);
+        if(inversePoint>=0) {
+            int i=nums.length-1;
+            while(nums[i]<=nums[inversePoint]) i--;
+            swap(nums,inversePoint,i);
         }
-        reverse(nums,i+1,nums.length-1);
+        reverse(nums,inversePoint+1,nums.length-1);
         
         // int m=0;
         // while(m>=0 && m<nums.length-1 && nums[m]>=nums[m+1]) m++;
