@@ -1,7 +1,7 @@
 class Solution {
     public int[] nextGreaterElements(int[] arr) {
 //         Stack<Integer> stack = new Stack<>();
-        int n = arr.length;
+//         int n = nums.length;
 //         int[] nge = new int[n];
         
 //         for(int i=(2*n-1);i>=0; i--) {
@@ -15,24 +15,23 @@ class Solution {
 //         }
 //         return nge;
         
-        
+        int n = arr.length, p = 0;
         int[] res = new int[n];
         Stack<Integer> stack = new Stack<>();
-        int p = 0;
         
         for(int i=2*n-1; i>=0; i--) {
             if(stack.isEmpty()) {
-                res[(p++)%n] = -1;
+                res[p%n] = -1;
             } else if(!stack.isEmpty() && stack.peek() > arr[i%n]) {
-                res[(p++)%n] = stack.peek();
+                res[p%n] = stack.peek();
             } else if(!stack.isEmpty() && stack.peek() <= arr[i%n]) {
                 while(stack.size()>0 && stack.peek() <= arr[i%n]) {
                     stack.pop();
                 }
-                if(stack.isEmpty()) res[(p++)%n] = -1;
-                else res[(p++)%n] = stack.peek();
+                if(stack.isEmpty()) res[p%n] = -1;
+                else res[p%n] = stack.peek();
             }
-            
+            p++;
             stack.push(arr[i%n]);
         }
         // reverse
