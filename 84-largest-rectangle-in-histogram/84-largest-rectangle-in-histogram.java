@@ -3,10 +3,10 @@ class Solution {
         // n^2, 1
         // int max = 0, n = heights.length;
         // for(int i=0; i<n; i++) {
-        //     int minH = Integer.MAX_VALUE;
+        //     int minH = Integer.MAX_VALUE;    // breath
         //     for(int j=i; j<n; j++) {
         //         minH = Math.min(minH, heights[j]);
-        //         max = Math.max(max, minH*(j-i+1));
+        //         max = Math.max(max, minH*(j-i+1)); // l*b
         //     }
         // }
         // return max;
@@ -17,7 +17,7 @@ class Solution {
         int[] left = leftSmaller(heights), right = rightSmaller(heights), area = new int[n];
         for(int i=0; i<heights.length; i++) {
             // System.out.println(left[i] +" "+right[i]);
-            area[i] = heights[i] * (right[i]-left[i]-1);
+            area[i] = heights[i] * (right[i]-left[i]-1);   // b*(rightsmaller-leftsmaller-1 = l)
             max = Math.max(max, area[i]);
         }
         return max;
@@ -70,6 +70,49 @@ class Solution {
             int temp = res[i];
             res[i++] = res[j];
             res[j--] = temp;
+        }
+        return res;
+	}
+    
+    int[] findSmaller(int arr[], boolean right) {
+        int[] res = new int[arr.length];
+        Stack<Integer> stack = new Stack<>();
+        int p = 0, pseudoIndex, i, n = arr.length;
+        
+        if(right) { pseudoIndex = arr.length; i=n-1; }
+        else { pseudoIndex = -1; i=0; }
+        
+        while(true) {
+            if(stack.isEmpty()) {
+                res[p++] = pseudoIndex;
+            } else if(!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
+                res[p++] = stack.peek();
+            } else if(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+                while(stack.size()>0 && arr[stack.peek()] >= arr[i]) {
+                    stack.pop();
+                }
+                if(stack.isEmpty()) res[p++] = pseudoIndex;
+                else res[p++] = stack.peek();
+            }
+            stack.push(i);
+            
+            if(right) {
+                if(i==n-1) break;
+                --i;
+            } else {
+                if(i==0) break;
+                ++i;
+            }
+        }
+        // reverse
+        if(right) {
+            i=0;
+            int j=n-1;
+            while(i<=j) {
+                int temp = res[i];
+                res[i++] = res[j];
+                res[j--] = temp;
+            }
         }
         return res;
 	} 
