@@ -1,10 +1,10 @@
 class MinStack {
-    Deque<int[]> stack = new ArrayDeque<>();
+    private Stack<int[]> stack = new Stack<>();
     
     public MinStack() {}
     
     public void push(int val) {
-        int min = stack.isEmpty()?val:Math.min(val,getMin());
+        int min = stack.isEmpty() ? val : Math.min(val,getMin());
         stack.push(new int[]{val,min});
     }
     
