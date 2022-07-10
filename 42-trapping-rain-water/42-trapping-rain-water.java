@@ -13,28 +13,20 @@ class Solution {
 //         return ans;
         
         // n, n
-        int n = height.length;
-        int[] left = new int[n], right = new int[n];
+        int n = height.length, sum = 0;
+        int[] left = new int[n], right = new int[n], waterLevel = new int[n];
         
         left[0] = height[0];
         for(int i=1; i<n; i++) {
             left[i] = Math.max(left[i-1], height[i]);
         }
-        int[] waterLevel = new int[n];
-        int sum = 0;
+        
         right[n-1] = height[n-1];
         for(int i=n-1; i>=0; i--) {
             if(i!= n-1) right[i] = Math.max(right[i+1], height[i]);
             waterLevel[i] = Math.min(left[i], right[i]) - height[i];
             sum += waterLevel[i];
         }
-        
-        // int[] waterLevel = new int[n];
-        // int sum = 0;
-        // for(int i=0; i<n; i++) {
-        //     waterLevel[i] = Math.min(left[i], right[i]) - height[i];
-        //     sum += waterLevel[i];
-        // }
         return sum;
         
         
