@@ -1,5 +1,36 @@
 class Solution {
     public int maximalRectangle(char[][] matrix) {
+        // n^3*m^3, 1
+        // create all rectangles
+        // check whether there is a zero in that or not
+        // if not, calculate its area
+        // return the maximum area out of it
+        
+//         int n = matrix.length, m = matrix[0].length;
+        
+//         int maxArea = 0;
+//         for(int i = 0; i < n; i++) {
+//             for(int j = 0; j < m; j++) {
+//                 // coordinates of the top left corner of the rectangle
+//                 int startingX = i, startingY = j;
+                
+//                 for(int k = i; k < n; k++) {
+//                     for(int l = j ; l < m; l++) {
+//                         // coordinates of the bottom right corner of the rectangle
+//                         int endingX = k, endingY = l;
+//                         // check whether its contains only one
+//                         if(isEligible(matrix, startingX, startingY, endingX, endingY)) {
+//                             maxArea = Math.max(maxArea, (endingX - startingX + 1) * 
+//                                                (endingY - startingY + 1));
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         return maxArea;
+        
+        
+        // n*m, m
         int[] height = new int[matrix[0].length];
         for(int j=0; j<matrix[0].length; j++) height[j] = matrix[0][j] == '0' ? 0 : 1;
         int max = largestRectangleArea(height);
@@ -77,5 +108,18 @@ class Solution {
             res[j--] = temp;
         }
         return res;
-	} 
+	}
+    
+    
+    public static boolean isEligible(char[][] arr, int startingX, int startingY, int endingX, int endingY){
+        for(int i = startingX; i <= endingX; i++) {
+            for(int j = startingY; j <= endingY; j++) {
+                if(arr[i][j] == '0') {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
 }
