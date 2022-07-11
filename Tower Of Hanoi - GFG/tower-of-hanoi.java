@@ -37,7 +37,7 @@ class Recursion {
 class Hanoi {
 
     public long toh(int n, int from, int to, int aux) {
-        // Your code here
+        // 2^n, n
         long[] moves = new long[1];
         moves[0] = 0L;
         toh(n, from, to, aux, moves);
