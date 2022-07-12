@@ -35,8 +35,8 @@ class Solution {
         }
         
         for(int i=index;i<c.length;i++) {
-            if(i>index && c[i]==c[i-1]) continue;
-            if(c[i]>target) break;
+            if(i!=index && c[i]==c[i-1]) continue;
+            if(c[i]>target) break;     // anything on the right of the sorted arr is >
             
             ds.add(c[i]);
             findComb(i+1, c, target-c[i], ans, ds);
