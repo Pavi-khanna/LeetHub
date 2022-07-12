@@ -1,7 +1,7 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         // 2^t*k(len of a ds), 
-        // Arrays.sort(candidates);
+        Arrays.sort(candidates);
         return findComb(0, candidates, target, new ArrayList<>(), new ArrayList<>());
     }
     
