@@ -35,7 +35,7 @@ class Solution {
         }
         
         for(int i=index;i<c.length;i++) {
-            if(i!=index && c[i]==c[i-1]) continue;
+            if(i!=index && c[i]==c[i-1]) continue;   // 1st index ko ignore na krde cz i==index
             if(c[i]>target) break;     // anything on the right of the sorted arr is >
             
             ds.add(c[i]);
