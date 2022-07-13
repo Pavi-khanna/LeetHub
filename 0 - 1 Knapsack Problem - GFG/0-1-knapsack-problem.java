@@ -66,22 +66,23 @@ class Solution
         // }
         // return knapSack(t, W, wt, val, n);
         
+        
         int[][] t = new int[n+1][W+1];
         return knapSack(t, wt, val);
     } 
     
-    // static int knapSack(int[][] t, int W, int wt[], int val[], int n) {
-    //      if(n==0 || W==0) return 0;
+    static int knapSack(int[][] t, int W, int wt[], int val[], int n) {
+         if(n==0 || W==0) return 0;
          
-    //      if(t[n][W] != -1) return t[n][W];
+         if(t[n][W] != -1) return t[n][W];
          
-    //      if(wt[n-1] > W) {
-    //          return t[n][W] = knapSack(t, W, wt, val, n-1);
-    //      } else {
-    //          return t[n][W] = Math.max(val[n-1] + knapSack(t, W-wt[n-1], wt, val, n-1),
-    //                          knapSack(t, W, wt, val, n-1));
-    //      }
-    // }
+         if(wt[n-1] > W) {
+             return t[n][W] = knapSack(t, W, wt, val, n-1);
+         } else {
+             return t[n][W] = Math.max(val[n-1] + knapSack(t, W-wt[n-1], wt, val, n-1),
+                             knapSack(t, W, wt, val, n-1));
+         }
+    }
     
     static int knapSack(int[][] t, int wt[], int val[]) {
         int rows = t.length, cols = t[0].length;
