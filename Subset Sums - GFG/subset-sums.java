@@ -37,12 +37,14 @@ class Solution{
             subsetSum.add(sum);
             return;
         }
-        
+        // not pick
         subsets(index+1, sum, arr, subsetSum);
+        // pick
         subsets(index+1, sum+arr.get(index), arr, subsetSum);
     }
     
-    ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N){
+    public ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N){
+        // 2^n, 2^n
         ArrayList<Integer> sum = new ArrayList<>();
         subsets(0, 0, arr, sum);
         // Collections.sort(sum);
