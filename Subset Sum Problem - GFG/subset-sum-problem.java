@@ -45,14 +45,14 @@ class Solution{
         //      return isSubsetSum(n-1, arr, sum-arr[n-1]) || isSubsetSum(n-1, arr, sum);
         //  }
         
-        int[][] t = new int[n+1][sum+1];
-        for(int i=0; i<n+1; i++) {
-            Arrays.fill(t[i], -1);
-        }
-        return isSubsetSum(t, sum, arr, n)==1 ? true : false;
+        // int[][] t = new int[n+1][sum+1];
+        // for(int i=0; i<n+1; i++) {
+        //     Arrays.fill(t[i], -1);
+        // }
+        // return isSubsetSum(t, sum, arr, n)==1 ? true : false;
         
-        // boolean[][] t = new boolean[N+1][sum+1];
-        // return sum(t, arr);
+        boolean[][] t = new boolean[n+1][sum+1];
+        return sum(t, arr);
     }
     
      static int isSubsetSum(int[][] t, int sum, int arr[], int n) {
