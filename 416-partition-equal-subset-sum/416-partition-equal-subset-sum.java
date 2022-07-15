@@ -2,15 +2,70 @@ class Solution {
     public boolean canPartition(int[] nums) {
         // return canPartition(0, nums, 0, 0);
         
-        // 2^n, n
+        // int totalSum = 0;
+        // for(int num : nums) totalSum += num;
+        // if(totalSum % 2 != 0) 
+        //     return false;
+        // else
+        //     return canPartition(nums, nums.length, totalSum/2);
+        
+        
         int totalSum = 0;
         for(int num : nums) totalSum += num;
-        boolean[][] t = new boolean[nums.length+1][(totalSum/2)+1];
+        Boolean[][] t = new Boolean[nums.length+1][(totalSum/2)+1];
+        for(int i=0; i<nums.length+1; i++) {
+            Arrays.fill(t[i], null);
+        }
         if(totalSum % 2 != 0) 
             return false;
         else
-            // return sum(nums, nums.length, totalSum / 2, 0, 0, new ArrayList<>(), new ArrayList<>());
-            return sum(t, nums);
+            return canPartition(t, nums, nums.length, totalSum/2);
+        
+        
+        // 2^n, n
+        // int totalSum = 0;
+        // for(int num : nums) totalSum += num;
+        // boolean[][] t = new boolean[nums.length+1][(totalSum/2)+1];
+        // if(totalSum % 2 != 0) 
+        //     return false;
+        // else
+        //     // return sum(nums, nums.length, totalSum / 2, 0, 0, new ArrayList<>(), new ArrayList<>());
+        //     return sum(t, nums);
+    }
+    
+    public boolean canPartition(int[] arr, int n, int sum) {
+         // if(n==0 && sum!=0) return false;
+         // if(n==0) return true;
+        
+        if(n==0) {
+             if(sum!=0) return false;
+             else return true;
+         }
+         
+         if(arr[n-1] > sum) {
+             return canPartition(arr, n-1, sum);
+         } else {
+             return canPartition(arr, n-1, sum-arr[n-1]) || canPartition(arr, n-1, sum);
+         }
+    }
+    
+    public boolean canPartition(Boolean[][] t, int[] arr, int n, int sum) {
+         // if(n==0 && sum!=0) return false;
+         // if(n==0) return true;
+        
+        if(n==0) {
+             if(sum!=0) return false;
+             else return true;
+         }
+         
+         if(t[n][sum] != null) return t[n][sum];
+         
+         if(arr[n-1] > sum) {
+             return t[n][sum] = canPartition(t, arr, n-1,sum);
+         } else {
+             return t[n][sum] = canPartition(t, arr, n-1,sum-arr[n-1]) || 
+             canPartition(t, arr, n-1,sum);
+         }
     }
     
     public boolean sum(boolean[][] t,int arr[]) {
