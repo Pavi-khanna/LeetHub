@@ -67,13 +67,11 @@ class Solution{
          
          if(arr[n-1] > sum) {
              t[n][sum] = isSubsetSum(t, sum, arr, n-1);
-             t[n][sum] %= mod;
-             return t[n][sum];
+             return t[n][sum] %= mod;
          } else {
              t[n][sum] = isSubsetSum(t, sum-arr[n-1], arr, n-1) + 
              isSubsetSum(t, sum, arr, n-1);
-             t[n][sum] %= mod;
-             return t[n][sum];
+             return t[n][sum] %= mod;
          }
     }
 	
