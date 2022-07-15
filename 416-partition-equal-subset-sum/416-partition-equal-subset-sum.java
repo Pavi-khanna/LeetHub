@@ -10,27 +10,27 @@ class Solution {
         //     return canPartition(nums, nums.length, totalSum/2);
         
         
-        int totalSum = 0;
-        for(int num : nums) totalSum += num;
-        Boolean[][] t = new Boolean[nums.length+1][(totalSum/2)+1];
-        for(int i=0; i<nums.length+1; i++) {
-            Arrays.fill(t[i], null);
-        }
-        if(totalSum % 2 != 0) 
-            return false;
-        else
-            return canPartition(t, nums, nums.length, totalSum/2);
-        
-        
-        // 2^n, n
         // int totalSum = 0;
         // for(int num : nums) totalSum += num;
-        // boolean[][] t = new boolean[nums.length+1][(totalSum/2)+1];
+        // Boolean[][] t = new Boolean[nums.length+1][(totalSum/2)+1];
+        // for(int i=0; i<nums.length+1; i++) {
+        //     Arrays.fill(t[i], null);
+        // }
         // if(totalSum % 2 != 0) 
         //     return false;
         // else
-        //     // return sum(nums, nums.length, totalSum / 2, 0, 0, new ArrayList<>(), new ArrayList<>());
-        //     return sum(t, nums);
+        //     return canPartition(t, nums, nums.length, totalSum/2);
+        
+        
+        // 2^n, n
+        int totalSum = 0;
+        for(int num : nums) totalSum += num;
+        boolean[][] t = new boolean[nums.length+1][(totalSum/2)+1];
+        if(totalSum % 2 != 0) 
+            return false;
+        else
+            // return sum(nums, nums.length, totalSum / 2, 0, 0, new ArrayList<>(), new ArrayList<>());
+            return sum(t, nums);
     }
     
     public boolean canPartition(int[] arr, int n, int sum) {
