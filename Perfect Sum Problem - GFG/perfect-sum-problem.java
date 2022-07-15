@@ -30,9 +30,52 @@ class Solution{
 	    
 	    // return sum(arr, n, sum, 0, 0, new ArrayList<>(), new ArrayList<>());
 	    
+	    
+	   //  if(n==0) {
+    //          if(sum!=0) return 0;
+    //          else return 1;
+    //      }
+         
+    //      if(arr[n-1] > sum) {
+    //          return perfectSum(arr, n-1, sum);
+    //      } else {
+    //          return perfectSum(arr, n-1, sum-arr[n-1]) + perfectSum(arr, n-1, sum);
+    //      }
+	    
+	    
+	    
 	    int[][] t = new int[n+1][sum+1];
-        return sum(t, arr);
+        for(int i=0; i<n+1; i++) {
+            Arrays.fill(t[i], -1);
+        }
+        return isSubsetSum(t, sum, arr, n);
+	    
+	    
+	   // int[][] t = new int[n+1][sum+1];
+    //     return sum(t, arr);
 	}
+	
+	static int isSubsetSum(int[][] t, int sum, int arr[], int n) {
+	    int mod = (int) 1e9+7;
+         if(n==0) {
+             if(sum!=0) return 0;
+             else return 1;
+         }
+         
+         // hasnt been touched
+         if(t[n][sum] != -1) return t[n][sum];
+         
+         if(arr[n-1] > sum) {
+             t[n][sum] = isSubsetSum(t, sum, arr, n-1);
+             t[n][sum] %= mod;
+             return t[n][sum];
+         } else {
+             t[n][sum] = isSubsetSum(t, sum-arr[n-1], arr, n-1) + 
+             isSubsetSum(t, sum, arr, n-1);
+             t[n][sum] %= mod;
+             return t[n][sum];
+         }
+    }
 	
 	public int sum(int[][] t,int arr[]) {
         int rows = t.length, cols = t[0].length, mod =(int) 1e9+7;
