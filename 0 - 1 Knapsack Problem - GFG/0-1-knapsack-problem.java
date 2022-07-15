@@ -60,15 +60,15 @@ class Solution
         //  }
         
         
-        // int[][] t = new int[n+1][W+1];
-        // for(int i=0; i<n+1; i++) {
-        //     Arrays.fill(t[i], -1);
-        // }
-        // return knapSack(t, W, wt, val, n);
-        
-        
         int[][] t = new int[n+1][W+1];
-        return knapSack(t, wt, val);
+        for(int i=0; i<n+1; i++) {
+            Arrays.fill(t[i], -1);
+        }
+        return knapSack(t, W, wt, val, n);
+        
+        
+        // int[][] t = new int[n+1][W+1];
+        // return knapSack(t, wt, val);
     } 
     
     static int knapSack(int[][] t, int W, int wt[], int val[], int n) {
