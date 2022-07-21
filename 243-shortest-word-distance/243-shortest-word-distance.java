@@ -1,5 +1,6 @@
 class Solution {
     public int shortestDistance(String[] wordsDict, String word1, String word2) {
+        // n*m, 1 (m= len of w1 & w2)
         int first=-1, second=-1, distance=wordsDict.length;
         for(int i=0; i<wordsDict.length; i++) {
             if(distance==1) return distance;
