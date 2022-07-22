@@ -4,7 +4,7 @@ class Solution {
         // int max = Integer.MIN_VALUE;
         // for(int i=0; i<nums.length; i++) {
         //     int curMax = 0;
-        //     for(int j=i; j<nums.length; j++) {  // if i+1 -> 1 = int min
+        //     for(int j=i; j<nums.length; j++) {  // if i+1 -> i/p 1 => o/p int min -2147483648
         //         curMax+=nums[j];
         //         max = Math.max(curMax, max);
         //     }
@@ -26,7 +26,7 @@ class Solution {
                 begin = i+1;
             }
         }
-        System.out.println(Arrays.toString(Arrays.copyOfRange(nums, start, end+1)));
+        // System.out.println(Arrays.toString(Arrays.copyOfRange(nums, start, end+1)));
         return max;
     }
 }
