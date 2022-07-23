@@ -6,12 +6,15 @@ class Solution {
         if(nums == null || nums.length <= 1) return;
         int inversePoint = nums.length-2;
         while(inversePoint>=0 && nums[inversePoint]>=nums[inversePoint+1]) inversePoint--;     
-        // 12323 ->  _   /\/
+        // 12323 ->  _    /\/
         // 12332 -> / \
+        
+        //System.out.println(inversePoint);
         
         if(inversePoint>=0) {
             int i=nums.length-1;
             while(nums[i]<=nums[inversePoint]) i--;
+            //System.out.println(i);
             swap(nums,inversePoint,i);
         }
         reverse(nums,inversePoint+1,nums.length-1);
