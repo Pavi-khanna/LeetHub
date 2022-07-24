@@ -1,7 +1,7 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        // n^n, 1
-        return dp(prices,1,0);
+        // 2^n, 1
+        return dp(prices,prices.length-1,0);
         
         
         // n, 1
@@ -31,11 +31,10 @@ class Solution {
     }
     
     private  int dp(int[] prices,int index,int profit){
-    if(index > prices.length-1)
-        return  profit;
-    if(prices[index]>prices[index-1]){
-        profit += prices[index]-prices[index-1];
-    }
-    return dp(prices,index+1,profit);
+        if(index == 0) return  profit;    // BC
+        if(prices[index]>prices[index-1]){  // if we are getting any profit or not
+            profit += prices[index]-prices[index-1];
+        }
+        return dp(prices,index-1,profit);
     }
 }
