@@ -19,35 +19,35 @@ class Solution {
         
         
         // quickselect
-        return kthLargest(nums, 0, nums.length-1, nums.length-k+1);
+        return kthSmallest(nums, 0, nums.length-1, nums.length-k+1);
     }
     
-    public int kthLargest(int[] arr, int low, int high, int k) {
+    public int kthSmallest(int[] arr, int low, int high, int k) {
         int partition = partition(arr, low, high);
         if(partition == k-1) return arr[partition];
         else if (partition < k - 1)
-            return kthLargest(arr, partition + 1, high, k);
+            return kthSmallest(arr, partition + 1, high, k);
         else
-            return kthLargest(arr, low, partition - 1, k);
+            return kthSmallest(arr, low, partition - 1, k);
     }
     
+    // Quick sort
     public int partition(int[] arr, int low, int high) {
-        int pivot = arr[high], pivotloc = low;
-        for (int i = low; i <= high; i++) {
-            // inserting elements of less value
-            // to the left of the pivot location
-            if (arr[i] < pivot) {
-                int temp = arr[i];
-                arr[i] = arr[pivotloc];
-                arr[pivotloc] = temp;
-                pivotloc++;
+        int pivot = arr[high], i=low-1;
+        
+        for(int j=low; j<high; j++) {
+            if(pivot > arr[j]) {
+                i++;
+                swap(arr, i, j);
             }
         }
-        // swapping pivot to the final pivot location
-        int temp = arr[high];
-        arr[high] = arr[pivotloc];
-        arr[pivotloc] = temp;
-  
-        return pivotloc;
+        swap(arr, i+1, high);
+        return i+1;
+    }
+    
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
