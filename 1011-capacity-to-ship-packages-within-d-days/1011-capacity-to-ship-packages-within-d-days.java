@@ -1,19 +1,19 @@
 class Solution {
-    public int shipWithinDays(int[] books, int k) {
+    public int shipWithinDays(int[] weights, int days) {
         int start = Integer.MIN_VALUE, end = 0;
         int res = -1;
 
         // if(books.length < k) return -1;
         
-        for(int i=0; i<books.length;i++) {
-            end += books[i];
-            start = Math.max(start, books[i]);
+        for(int i=0; i<weights.length;i++) {
+            end += weights[i];
+            start = Math.max(start, weights[i]);
         }
         
         while(start <= end) {
             int mid = start +(end - start)/2;
             
-            if(isValid(books, k, mid)) {
+            if(isValid(weights, days, mid)) {
                 res = mid;
                 end = mid-1;
             } else {
@@ -23,18 +23,18 @@ class Solution {
         return res;
     }
     
-    boolean isValid(int[] books, int k, int maxPages) {
-        int student = 1;
-        int sum = 0;
+    boolean isValid(int[] weights, int days, int maxWeight) {
+        int capacity = 1;
+        int weight = 0;
         
-        for(int i=0; i<books.length; i++) {
-            sum += books[i];
-            if(sum > maxPages) {
-                student++;
-                sum = books[i];
+        for(int i=0; i<weights.length; i++) {
+            weight += weights[i];
+            if(weight > maxWeight) {
+                capacity++;
+                weight = weights[i];
             }
             
-            if(student > k) {
+            if(capacity > days) {
                 return false;
             }
         }
