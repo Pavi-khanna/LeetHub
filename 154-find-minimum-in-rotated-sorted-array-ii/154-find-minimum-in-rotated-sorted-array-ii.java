@@ -5,6 +5,8 @@ class Solution {
         if(nums == null || nums.length == 0) return -1;
         
         while(start <= end) {
+            while (start < end && nums[start] == nums[start + 1])
+                ++start;
             while (start < end && nums[end] == nums[end - 1])
                 --end;
             mid = start + (end-start)/2;
