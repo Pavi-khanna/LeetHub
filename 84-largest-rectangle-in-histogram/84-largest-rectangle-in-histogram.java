@@ -29,17 +29,17 @@ class Solution {
         int p = 0, pseudoIndex = -1, n = arr.length;
 
         for(int i=0; i<n; i++) {
-            if(stack.isEmpty()) {
-                res[p++] = pseudoIndex;
-            } else if(!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
-                res[p++] = stack.peek();
-            } else if(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+            // if(stack.isEmpty()) {
+            //     res[p++] = pseudoIndex;
+            // } else if(!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
+            //     res[p++] = stack.peek();
+            // } else if(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
                 while(stack.size()>0 && arr[stack.peek()] >= arr[i]) {
                     stack.pop();
                 }
                 if(stack.isEmpty()) res[p++] = pseudoIndex;
                 else res[p++] = stack.peek();
-            }
+            // }
             stack.push(i);
         }
         return res;
@@ -51,17 +51,17 @@ class Solution {
         int p = 0, pseudoIndex = arr.length, n = arr.length;
         
         for(int i=n-1; i>=0; i--) {
-            if(stack.isEmpty()) {
-                res[p++] = pseudoIndex;
-            } else if(!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
-                res[p++] = stack.peek();
-            } else if(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+            // if(stack.isEmpty()) {
+            //     res[p++] = pseudoIndex;
+            // } else if(!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
+            //     res[p++] = stack.peek();
+            // } else if(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
                 while(stack.size()>0 && arr[stack.peek()] >= arr[i]) {
                     stack.pop();
                 }
                 if(stack.isEmpty()) res[p++] = pseudoIndex;
                 else res[p++] = stack.peek();
-            }
+            // }
             stack.push(i);
         }
         // reverse
@@ -77,37 +77,34 @@ class Solution {
     int[] findSmaller(int arr[], boolean right) {
         int[] res = new int[arr.length];
         Stack<Integer> stack = new Stack<>();
-        int p = 0, pseudoIndex, i, n = arr.length;
+        int p = 0, pseudoIndex, n = arr.length;
         
-        if(right) { pseudoIndex = arr.length; i=n-1; }
-        else { pseudoIndex = -1; i=0; }
+        if(right) { pseudoIndex = arr.length; }
+        else { pseudoIndex = -1; }
         
-        while(true) {
-            if(stack.isEmpty()) {
-                res[p++] = pseudoIndex;
-            } else if(!stack.isEmpty() && arr[stack.peek()] < arr[i]) {
-                res[p++] = stack.peek();
-            } else if(!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+        if(right) {
+            for(int i=0; i<n; i++) {
                 while(stack.size()>0 && arr[stack.peek()] >= arr[i]) {
                     stack.pop();
                 }
                 if(stack.isEmpty()) res[p++] = pseudoIndex;
                 else res[p++] = stack.peek();
-            }
             stack.push(i);
-            
-            if(right) {
-                if(i==n-1) break;
-                --i;
-            } else {
-                if(i==0) break;
-                ++i;
+            }
+        } else {
+            for(int i=n-1; i>=0; i--) {
+                while(stack.size()>0 && arr[stack.peek()] <= arr[i]) {
+                    stack.pop();
+                }
+                if(stack.isEmpty()) res[p++] = pseudoIndex;
+                else res[p++] = stack.peek();
+            stack.push(i);
             }
         }
+        
         // reverse
         if(right) {
-            i=0;
-            int j=n-1;
+            int i=0, j=n-1;
             while(i<=j) {
                 int temp = res[i];
                 res[i++] = res[j];
