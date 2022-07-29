@@ -26,17 +26,17 @@ class Solution {
         for(int i=2*n-1; i>=0; i--) {
             int index = i%n, newIndex = p%n;
             
-            // if(stack.isEmpty()) {
-            //     res[newIndex] = -1;
-            // } else if(!stack.isEmpty() && stack.peek() > arr[index]) {
-            //     res[newIndex] = stack.peek();
-            // } else if(!stack.isEmpty() && stack.peek() <= arr[index]) {
+            if(stack.isEmpty()) {
+                res[newIndex] = -1;
+            } else if(!stack.isEmpty() && stack.peek() > arr[index]) {
+                res[newIndex] = stack.peek();
+            } else if(!stack.isEmpty() && stack.peek() <= arr[index]) {
                 while(stack.size()>0 && stack.peek() <= arr[index]) {
                     stack.pop();
                 }
                 if(stack.isEmpty()) res[newIndex] = -1;
                 else res[newIndex] = stack.peek();
-            // }
+            }
             p++;
             stack.push(arr[index]);
         }
