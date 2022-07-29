@@ -1,22 +1,26 @@
 class StockSpanner {
+    // List<Integer> l;
+    
     Stack<int[]> stack;
     int counter = 0;
 
     public StockSpanner() {
+        // l=new ArrayList<>();
         stack = new Stack<>();
     }
     
     public int next(int price) {
-        // int span = 1;
-        // while (!s.isEmpty() && price >= s.peek()[0]) { // If the current price is greater than stack peek.
-        //     span += s.peek()[1];
-        //     s.pop();
+        // l.add(price);
+        // int ans=0;
+        // for(int i=l.size()-1;i>=0;i--){
+        //     if(l.get(i)<=price)
+        //         ans++;
+        //     else
+        //         break;
         // }
-        // s.push(new int[]{price, span});
-        // return span;
+        // return ans;
         
-        int res = 1, n = stack.size();
-        // for(int i=0; i<n; i++) {
+            int res = 1, n = stack.size();
             if(stack.isEmpty()) {
                 res = 1+counter;  // 1 more than i means it has reached beyond 0
             } else if(!stack.isEmpty() && stack.peek()[1] > price) {
@@ -29,9 +33,8 @@ class StockSpanner {
                 else res = counter-stack.peek()[0];
             }
             stack.push(new int[]{counter, price});
-        // }
-        counter++;
-        return res;
+            counter++;
+            return res;
     }
 }
 
