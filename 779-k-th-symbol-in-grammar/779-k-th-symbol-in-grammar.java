@@ -8,7 +8,7 @@ class Solution {
         if(k<=mid) {
             return kthGrammar(n-1, k);
         } else {
-            return kthGrammar(n-1, k-mid)==0 ? 1 : 0;
+            return kthGrammar(n-1, k-mid) ^ 1;
         }
         
         // return Integer.bitCount(k-1) & 1;
