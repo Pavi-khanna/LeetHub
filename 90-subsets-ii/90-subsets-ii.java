@@ -1,20 +1,20 @@
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         // 2^n*mlogm (m = 2^n) => n*2^2n, 
-        // Arrays.sort(nums);
-        // Set<List<Integer>> set = printAllSubSequences(0, new ArrayList<>(), nums, new HashSet<>());
+        Arrays.sort(nums);
+        Set<List<Integer>> set = printAllSubSequences(0, new ArrayList<>(), nums, new HashSet<>());
         // List<List<Integer>> list = new ArrayList<>();
         // for(List<Integer> num : set) {
         //     list.add(new ArrayList<>(num));
         // }
-        // return list;
+        return new ArrayList<>(set);
         
         
         // n*2^n, n
-        Arrays.sort(nums);
-        List<List<Integer>> ans = new ArrayList<>();
-        findSubsets(0, nums, new ArrayList<>(), ans);
-        return ans;
+        // Arrays.sort(nums);
+        // List<List<Integer>> ans = new ArrayList<>();
+        // findSubsets(0, nums, new ArrayList<>(), ans);
+        // return ans;
     }
     
     private void findSubsets(int index, int[] nums, List<Integer> ds, List<List<Integer>> ans) {
