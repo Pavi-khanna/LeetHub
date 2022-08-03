@@ -1,11 +1,11 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         // n*2^n, n
-        // return printAllSubSequences(0, new ArrayList<>(), nums, new ArrayList<>());
+        return printAllSubSequences(0, new ArrayList<>(), nums, new ArrayList<>());
         
-        List<List<Integer>> ans = new ArrayList<>();
-        findSubsets(0, nums, new ArrayList<>(), ans);
-        return ans;
+        // List<List<Integer>> ans = new ArrayList<>();
+        // findSubsets(0, nums, new ArrayList<>(), ans);
+        // return ans;
     }
     
     public List<List<Integer>> printAllSubSequences(int i, List<Integer> prevSubSet, int[] nums, List<List<Integer>> res) {
