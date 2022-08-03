@@ -2,13 +2,14 @@ class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         // 2^n*mlogm (m = 2^n) => n*2^2n, 
         Arrays.sort(nums);
-        Set<List<Integer>> set = printAllSubSequences(0, new ArrayList<>(), nums, new HashSet<>());
+        // Set<List<Integer>> set = printAllSubSequences(0, new ArrayList<>(), nums, new HashSet<>());
         // List<List<Integer>> list = new ArrayList<>();
         // for(List<Integer> num : set) {
         //     list.add(new ArrayList<>(num));
         // }
-        return new ArrayList<>(set);
-        
+        // return new ArrayList<>(set);
+        return printAllSubSequences(0, new ArrayList<>(), nums, new ArrayList<>());
+
         
         // n*2^n, n
         // Arrays.sort(nums);
@@ -35,6 +36,22 @@ class Solution {
                 
         prevSubSet.add(nums[i]);
         printAllSubSequences(i+1, prevSubSet, nums, res);
+        prevSubSet.remove(prevSubSet.size()-1);
+        printAllSubSequences(i+1, prevSubSet, nums, res);
+        
+        return res;
+    }
+    
+    public List<List<Integer>> printAllSubSequences(int i, List<Integer> prevSubSet, int[] nums, List<List<Integer>> res) {
+        if(i==nums.length){
+            res.add(new ArrayList<>(prevSubSet));
+            return res;
+        }
+        
+        prevSubSet.add(nums[i]);
+        printAllSubSequences(i+1, prevSubSet, nums, res);
+        
+        while(i+1<nums.length && nums[i+1]==nums[i]) ++i;
         prevSubSet.remove(prevSubSet.size()-1);
         printAllSubSequences(i+1, prevSubSet, nums, res);
         
