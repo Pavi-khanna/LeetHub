@@ -23,6 +23,7 @@ class Solution {
         while(!st.isEmpty()) {
             root = st.pop();
             res.add(root.val);
+            
             if(root.right!=null) st.push(root.right);
             if(root.left!=null) st.push(root.left);
         }
