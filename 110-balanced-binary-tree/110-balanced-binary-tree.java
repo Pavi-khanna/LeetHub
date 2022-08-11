@@ -23,9 +23,7 @@ class Solution {
         
         boolean left = isBalanced(root.left);
         boolean right = isBalanced(root.right);
-        if(!left || !right) return false;
-        
-        return true;
+        return !(!left || !right);
         
         
         // return dfsHeight(root) != -1;
