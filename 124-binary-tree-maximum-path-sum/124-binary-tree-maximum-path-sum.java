@@ -15,21 +15,27 @@
  */
 class Solution {
     public int maxPathSum(TreeNode root) {
-        int[] diameter = {Integer.MIN_VALUE};
-        height(root,diameter);
-        return diameter[0];
+        int[] maxVal = {Integer.MIN_VALUE};
+        maxPathDown(root, maxVal);
+        return maxVal[0];
     }
     
-    public int height(TreeNode node, int[] diameter) {
-        if(node == null) return 0;
+    public int maxPathDown(TreeNode root, int[] maxVal) {
+        if(root==null) return 0;
         
-        int l = height(node.left, diameter);
-        int r = height(node.right, diameter);
+        int lh = Math.max(0, maxPathDown(root.left, maxVal));
+        int rh = Math.max(0, maxPathDown(root.right, maxVal));
         
-        int temp = Math.max(node.val+ Math.max(l,r), node.val);
-        int ans = Math.max(temp, node.val+l+r);
-        diameter[0] = Math.max(diameter[0], ans);
+        maxVal[0] = Math.max(maxVal[0], lh+rh+root.val);
+        return Math.max(lh,rh)+root.val;
         
-        return temp;
+//         int lh = maxPathDown(root.left, maxVal);
+//         int rh = maxPathDown(root.right, maxVal);
+        
+//         int maxIncludingCurrentNode = Math.max(root.val,root.val+Math.max(lh,rh));
+//         int maxIncludingCurrentNodeAsRoot = Math.max(maxIncludingCurrentNode, root.val+lh+rh);
+//         maxVal[0] = Math.max(maxIncludingCurrentNodeAsRoot, maxVal[0]);
+        
+        // return maxIncludingCurrentNode;
     }
 }
