@@ -28,7 +28,22 @@ class Tuple {
 class Solution {
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
-        Queue < Tuple > q = new LinkedList < Tuple > ();
+        dfs(root, map);
+        List<List<Integer>> list = new ArrayList<>();
+        // System.out.println(map);
+        for (TreeMap<Integer, PriorityQueue<Integer>> ys: map.values()) {
+            list.add(new ArrayList<>());
+            for (PriorityQueue<Integer> nodes: ys.values()) {
+                while (!nodes.isEmpty()) {
+                    list.get(list.size() - 1).add(nodes.poll());
+                }
+            }
+        }
+        return list;
+    }
+    
+    public void dfs(TreeNode root, TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map) {
+        Queue<Tuple> q = new LinkedList<Tuple>();
         q.offer(new Tuple(root, 0, 0));
         while (!q.isEmpty()) {
             Tuple tuple = q.poll();
@@ -44,16 +59,5 @@ class Solution {
             if (node.left != null) q.add(new Tuple(node.left, x - 1, y + 1));
             if (node.right != null) q.add(new Tuple(node.right, x + 1, y + 1));
         }
-        List < List < Integer >> list = new ArrayList < > ();
-        System.out.println(map);
-        for (TreeMap<Integer, PriorityQueue<Integer>> ys: map.values()) {
-            list.add(new ArrayList<>());
-            for (PriorityQueue<Integer> nodes: ys.values()) {
-                while (!nodes.isEmpty()) {
-                    list.get(list.size() - 1).add(nodes.poll());
-                }
-            }
-        }
-        return list;
     }
 }
