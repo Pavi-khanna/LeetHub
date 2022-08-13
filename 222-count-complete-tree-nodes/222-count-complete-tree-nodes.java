@@ -15,18 +15,18 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        if(root == null) return 0;
+        // int[] count={0};
+        // return inorder(root, count);
         
-        int left = getHeightLeft(root);
-        int right = getHeightRight(root);
         
-        //If left and right are equal it means that the tree is complete and hence go for 2^h -1.
-        if(left == right) return ((2<<(left)) -1);
-            
-        //else recursively calculate the number of nodes in left and right and add 1 for root.
-        else return countNodes(root.left)+ countNodes(root.right)+1;
+        if(root==null) return 0;
+        
+        int lh=getHeightLeft(root);
+        int rh=getHeightRight(root);
+        
+        if(lh == rh) return ((2<<lh)-1);
+        else return countNodes(root.left)+countNodes(root.right)+1;
     }
-    
     
     public int getHeightLeft(TreeNode root){
         int count=0;
@@ -37,7 +37,6 @@ class Solution {
         return count;
     }
     
-    
     public int getHeightRight(TreeNode root){
         int count=0;
         while(root.right!=null){
@@ -45,5 +44,14 @@ class Solution {
             root = root.right;
         }
         return count;
+    }
+    
+    public int inorder(TreeNode root, int[] count) {
+        if(root!=null) {
+            inorder(root.left,count);
+            count[0]++;
+            inorder(root.right,count);
+        }
+        return count[0];
     }
 }
