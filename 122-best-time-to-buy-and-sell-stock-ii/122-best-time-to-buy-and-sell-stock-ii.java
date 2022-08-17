@@ -20,15 +20,6 @@ class Solution {
 //         return total;
         
         
-        int max = 0, sum = 0;                            // change here
-        for(int i=1; i<prices.length;i++) {                // change here
-            sum = prices[i]-prices[i-1];                    // change here
-            if(sum<0) sum = 0;
-            max += sum;
-        }
-        return max;
-        
-        
         // n, 1
         // int total = 0;
         // for(int i=1;i<prices.length;i++) {
@@ -37,6 +28,18 @@ class Solution {
         //     }
         // }
         // return total;
+        
+        
+        // kadane
+        
+        
+        int max = 0, sum = 0;                            // change here
+        for(int i=1; i<prices.length;i++) {                // change here
+            sum = prices[i]-prices[i-1];                    // change here
+            if(sum<0) sum = 0;
+            max += sum;
+        }
+        return max;
     }
     
     private  int dp(int[] prices,int index,int profit){
