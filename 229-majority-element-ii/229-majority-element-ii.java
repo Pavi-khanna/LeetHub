@@ -44,7 +44,7 @@ class Solution {
             }
         }
         
-        List < Integer > ans = new ArrayList < Integer > ();
+        List<Integer> ans = new ArrayList<Integer>();
         count1 = 0;
         count2 = 0;
         for (int i = 0; i < len; i++) {
