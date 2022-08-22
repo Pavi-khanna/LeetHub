@@ -40,25 +40,6 @@ class Solution {
         // return new ArrayList(result);
         
         
-         // n^2, n
-        Set<List<Integer>> res = new HashSet<>();
-        Set<Integer> dups = new HashSet<>();
-        Map<Integer, Integer> seen = new HashMap<>();
-        for (int i = 0; i < nums.length; ++i)
-            if (dups.add(nums[i])) {   // not duplicate
-                for (int j = i + 1; j < nums.length; ++j) {
-                    int complement = 0 -(nums[i] + nums[j]);
-                    if (seen.containsKey(complement) && seen.get(complement) == i) {
-                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
-                        Collections.sort(triplet);
-                        res.add(triplet);
-                    }
-                    seen.put(nums[j], i);
-                }
-            }
-        return new ArrayList(res);
-        
-        
         // n^2, n
         // Arrays.sort(nums);
         // List<List<Integer>> res = new ArrayList<>();
@@ -79,24 +60,43 @@ class Solution {
         // return res;
         
         
-        // n^2+nlogn, m+n
-//         List<List<Integer>> result = new ArrayList<List<Integer>>();
-//         Map<Integer, Integer> numsMap = new HashMap<Integer, Integer>();
-//         Arrays.sort(nums);
+        // n^2, m+n
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        Map<Integer, Integer> numsMap = new HashMap<Integer, Integer>();
+        Arrays.sort(nums);
         
-//         for(int i = 0; i < nums.length; i++) numsMap.put(nums[i], i);
+        for(int i = 0; i < nums.length; i++) numsMap.put(nums[i], i);
 
-//         for(int i = 0; i < nums.length; i++) {
-//         	if(i > 0 && nums[i] == nums[i - 1]) continue;
-//         	for(int j = i+1; j < nums.length; j++) {
-//         		int key = 0 -(nums[i] + nums[j]);
-//              if(j > i+1 && nums[j] == nums[j-1]) continue;
-//         		if(numsMap.containsKey(key) && numsMap.get(key) > j) {
-//         			result.add(Arrays.asList(nums[i], nums[j], key));
-//         		}
-//         	 }
-//         }
-//         return result;
+        for(int i = 0; i < nums.length; i++) {
+        	if(i > 0 && nums[i] == nums[i - 1]) continue;
+        	for(int j = i+1; j < nums.length; j++) {
+        		int key = 0 -(nums[i] + nums[j]);
+             if(j > i+1 && nums[j] == nums[j-1]) continue;
+        		if(numsMap.containsKey(key) && numsMap.get(key) > j) {
+        			result.add(Arrays.asList(nums[i], nums[j], key));
+        		}
+        	 }
+        }
+        return result;
+        
+        
+         // n^2, n
+        // Set<List<Integer>> res = new HashSet<>();
+        // Set<Integer> dups = new HashSet<>();
+        // Map<Integer, Integer> seen = new HashMap<>();
+        // for (int i = 0; i < nums.length; ++i)
+        //     if (dups.add(nums[i])) {   // not duplicate
+        //         for (int j = i + 1; j < nums.length; ++j) {
+        //             int complement = 0 -(nums[i] + nums[j]);
+        //             if (seen.containsKey(complement) && seen.get(complement) == i) {
+        //                 List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
+        //                 Collections.sort(triplet);
+        //                 res.add(triplet);
+        //             }
+        //             seen.put(nums[j], i);
+        //         }
+        //     }
+        // return new ArrayList(res);
     }
     
     void twoSum(int[] nums, int i, List<List<Integer>> res) {
