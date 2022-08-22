@@ -1,28 +1,33 @@
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
-        int[] diff = {Integer.MAX_VALUE};
+        int[] ans = {Integer.MAX_VALUE};
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < nums.length && diff[0] != 0; ++i)
+        for (int i = 0; i < nums.length; ++i)
             if (i == 0 || nums[i - 1] != nums[i]) {
                 // twoSumBrute(nums, i, res);
                 // twoSum(nums, i, res);
-                twoSumII(nums, i, res, target, diff);
+                twoSumII(nums, i, res, target, ans);
             }
-        return target-diff[0];
+        return ans[0];
     }
     
-    void twoSumII(int[] nums, int i, List<List<Integer>> res, int target, int[] diff) {
+    void twoSumII(int[] nums, int i, List<List<Integer>> res, int target, int[] ans) {
         int lo = i + 1, hi = nums.length - 1;
         while (lo < hi) {
             int sum = nums[i] + nums[lo] + nums[hi];
-            if (Math.abs(target-sum) < Math.abs(diff[0])) {
+            if (Math.abs(target-sum) < Math.abs(ans[0]-target)) {
+                // res.add(Arrays.asList(nums[i], nums[lo++], nums[hi--]));
                 // while (lo < hi && nums[lo] == nums[lo - 1]) ++lo;
-                diff[0] = target-sum;
+                ans[0] = sum;
+            } 
+            
+            if(sum == target) {
+                ans[0] = target;
+                break;
             } else if (sum > target) {
                 --hi;
             } else {
-                // res.add(Arrays.asList(nums[i], nums[lo++], nums[hi--]));
                 ++lo;
             }
         }
