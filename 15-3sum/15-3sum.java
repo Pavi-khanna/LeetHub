@@ -66,7 +66,8 @@ class Solution {
         for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
             if (i == 0 || nums[i - 1] != nums[i]) {
                 // twoSumBrute(nums, i, res);
-                twoSum(nums, i, res);
+                // twoSum(nums, i, res);
+                twoSumII(nums, i, res);
             }
         return res;
         
