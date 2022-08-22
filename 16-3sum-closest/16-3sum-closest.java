@@ -17,12 +17,12 @@ class Solution {
         while (lo < hi) {
             int sum = nums[i] + nums[lo] + nums[hi];
             if (Math.abs(target-sum) < Math.abs(diff[0])) {
+                while (lo < hi && nums[lo] == nums[lo - 1]) ++lo;
                 diff[0] = target-sum;
             } else if (sum > target) {
                 --hi;
             } else {
                 // res.add(Arrays.asList(nums[i], nums[lo++], nums[hi--]));
-                // while (lo < hi && nums[lo] == nums[lo - 1]) ++lo;
                 ++lo;
             }
         }
