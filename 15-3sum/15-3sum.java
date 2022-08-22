@@ -63,7 +63,7 @@ class Solution {
         // n^2, n
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < nums.length; ++i)
+        for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
             if (i == 0 || nums[i - 1] != nums[i]) {
                 twoSum(nums, i, res);
             }
