@@ -61,23 +61,23 @@ class Solution {
         
         
         // n^2, n
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; ++i)
+            if (i == 0 || nums[i - 1] != nums[i]) {
+                twoSum(nums, i, res);
+            }
+        return res;
+        
+        
+        // n^2, n
         // Arrays.sort(nums);
         // List<List<Integer>> res = new ArrayList<>();
         // for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
         //     if (i == 0 || nums[i - 1] != nums[i]) {
-        //         twoSum(nums, i, res);
+        //         twoSumII(nums, i, res);
         //     }
         // return res;
-        
-        
-        // n^2, n
-        Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
-            if (i == 0 || nums[i - 1] != nums[i]) {
-                twoSumII(nums, i, res);
-            }
-        return res;
         
         
          // n^2, n
@@ -100,7 +100,7 @@ class Solution {
     }
     
     void twoSum(int[] nums, int i, List<List<Integer>> res) {
-        var seen = new HashSet<Integer>();
+        Set<Integer> seen = new HashSet<Integer>();
         for (int j = i + 1; j < nums.length; ++j) {
             int complement = -nums[i] - nums[j];
             if (seen.contains(complement)) {
