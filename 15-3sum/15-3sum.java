@@ -19,44 +19,44 @@ class Solution {
         
         
         // n^2logm, m
-        Set<List<Integer>> result = new HashSet<>();
-        Map<Integer, Integer> lookup = new HashMap<>(nums.length);
-        for (int i = 0; i < nums.length; i++) {
-            lookup.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                int key = - nums[i] - nums[j];
-                if (lookup.containsKey(key)) {
-                    int k = lookup.get(key);
-                    if (k != i && k != j) {
-                        List<Integer> tuple = Arrays.asList(nums[i], nums[j], nums[k]);
-                        Collections.sort(tuple);
-                        result.add(tuple);
+        // Set<List<Integer>> result = new HashSet<>();
+        // Map<Integer, Integer> lookup = new HashMap<>(nums.length);
+        // for (int i = 0; i < nums.length; i++) {
+        //     lookup.put(nums[i], i);
+        // }
+        // for (int i = 0; i < nums.length; i++) {
+        //     for (int j = i + 1; j < nums.length; j++) {
+        //         int key = - nums[i] - nums[j];
+        //         if (lookup.containsKey(key)) {
+        //             int k = lookup.get(key);
+        //             if (k != i && k != j) {
+        //                 List<Integer> tuple = Arrays.asList(nums[i], nums[j], nums[k]);
+        //                 Collections.sort(tuple);
+        //                 result.add(tuple);
+        //             }
+        //         }
+        //     }
+        // }
+        // return new ArrayList(result);
+        
+        
+         // n^2logm, m
+        Set<List<Integer>> res = new HashSet<>();
+        Set<Integer> dups = new HashSet<>();
+        Map<Integer, Integer> seen = new HashMap<>();
+        for (int i = 0; i < nums.length; ++i)
+            if (dups.add(nums[i])) {   // not duplicate
+                for (int j = i + 1; j < nums.length; ++j) {
+                    int complement = 0 -(nums[i] + nums[j]);
+                    if (seen.containsKey(complement) && seen.get(complement) == i) {
+                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
+                        Collections.sort(triplet);
+                        res.add(triplet);
                     }
+                    seen.put(nums[j], i);
                 }
             }
-        }
-        return new ArrayList(result);
-        
-        
-//         // n^2logm, m
-//         Set<List<Integer>> res = new HashSet<>();
-//         Set<Integer> dups = new HashSet<>();
-//         Map<Integer, Integer> seen = new HashMap<>();
-//         for (int i = 0; i < nums.length; ++i)
-//             if (dups.add(nums[i])) {   // not duplicate
-//                 for (int j = i + 1; j < nums.length; ++j) {
-//                     int complement = 0 -(nums[i] + nums[j]);
-//                     if (seen.containsKey(complement) && seen.get(complement) == i) {
-//                         List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
-//                         Collections.sort(triplet);
-//                         res.add(triplet);
-//                     }
-//                     seen.put(nums[j], i);
-//                 }
-//             }
-//         return new ArrayList(res);
+        return new ArrayList(res);
         
         
         // n^2, n
