@@ -40,7 +40,7 @@ class Solution {
         // return new ArrayList(result);
         
         
-         // n^2logm, m
+         // n^2, n
         Set<List<Integer>> res = new HashSet<>();
         Set<Integer> dups = new HashSet<>();
         Map<Integer, Integer> seen = new HashMap<>();
@@ -97,25 +97,6 @@ class Solution {
 //         	 }
 //         }
 //         return result;
-        
-        
-        // n^2, n
-        // Set<List<Integer>> res = new HashSet<>();
-        // Set<Integer> dups = new HashSet<>();
-        // Map<Integer, Integer> seen = new HashMap<>();
-        // for (int i = 0; i < nums.length; ++i)
-        //     if (dups.add(nums[i])) {
-        //         for (int j = i + 1; j < nums.length; ++j) {
-        //             int complement = -nums[i] - nums[j];
-        //             if (seen.containsKey(complement) && seen.get(complement) == i) {
-        //                 List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
-        //                 Collections.sort(triplet);
-        //                 res.add(triplet);
-        //             }
-        //             seen.put(nums[j], i);
-        //         }
-        //     }
-        // return new ArrayList(res);
     }
     
     void twoSum(int[] nums, int i, List<List<Integer>> res) {
