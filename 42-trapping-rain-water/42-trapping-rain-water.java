@@ -2,7 +2,6 @@ class Solution {
     public int trap(int[] height) {
         // n^2, 1
 //         int ans = 0;
-        
 //         for(int i=1;i<height.length; i++) {
 //             int lh =0, rh=0;
 //             for(int j=i; j>=0; j--) lh = Math.max(lh, height[j]);
@@ -12,12 +11,13 @@ class Solution {
 //         }
 //         return ans;
         
+        
         // n, n
 //         int n = height.length, sum = 0;
 //         int[] left = new int[n], right = new int[n], waterLevel = new int[n];
         
 //         left[0] = height[0];
-//         for(int i=1; i<n; i++) {
+//         for(int i=1; i<n; i++) {00
 //             left[i] = Math.max(left[i-1], height[i]);
 //         }
         
