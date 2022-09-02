@@ -36,10 +36,9 @@ class Solution {
         int max = 0, sum = 0;                            // change here
         for(int i=1; i<nums.length;i++) {                // change here
             sum += nums[i]-nums[i-1];                    // change here
+            if(max<sum) max = sum;
             if(sum<0) sum = 0;
-            if(max<sum) {
-                max = sum;
-            }
+            
             // System.out.println(max +" "+sum);
         }
         return max;
