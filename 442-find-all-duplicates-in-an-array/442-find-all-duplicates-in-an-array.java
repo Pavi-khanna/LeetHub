@@ -30,7 +30,7 @@ class Solution {
             if(map.contains(num)) {
                 ans.add(num);
             }
-            map.add(num);
+            else map.add(num);
         }
         return ans;
     }
