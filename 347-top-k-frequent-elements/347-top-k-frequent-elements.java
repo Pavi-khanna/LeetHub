@@ -9,11 +9,9 @@ class Solution {
         
         // iterate on min heap & push key=freq,value=elem
         PriorityQueue<int[]> heap = new PriorityQueue<>((a,b)->{
-            if(a[0] == b[0]) {
-                return b[1] - a[1]; // 1st vala lenge fir jo 5-1 = pos dega toh no change
-            } else {
+            
                 return a[0] - b[0]; // -ive pe change , pos pe no change
-            }
+            
         });
         List<Integer> list = new ArrayList<>();
         
