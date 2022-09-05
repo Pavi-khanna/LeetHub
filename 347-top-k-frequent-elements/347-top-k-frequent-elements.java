@@ -9,9 +9,7 @@ class Solution {
         
         // iterate on min heap & push key=freq,value=elem
         PriorityQueue<int[]> heap = new PriorityQueue<>((a,b)->{
-            
-                return a[0] - b[0]; // -ive pe change , pos pe no change
-            
+            return a[0] - b[0]; // -ive pe change , pos pe no change
         });
         List<Integer> list = new ArrayList<>();
         
@@ -24,7 +22,7 @@ class Solution {
         while(heap.size()>0) {
             list.add(heap.poll()[1]);
         }
-        // Collections.sort(list);
+        Collections.sort(list);
         Integer[] arr = new Integer[list.size()];
         return list.stream().mapToInt(i->i).toArray();
     }
