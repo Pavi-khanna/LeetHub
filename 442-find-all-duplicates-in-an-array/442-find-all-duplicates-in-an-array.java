@@ -25,12 +25,12 @@ class Solution {
         
         
         // n, n
-        Set<Integer> map = new HashSet<>();
+        Set<Integer> seen = new HashSet<>();
         for(int num : nums) {
-            if(map.contains(num)) {
+            if(seen.contains(num)) {
                 ans.add(num);
-            }
-            else map.add(num);
+            } else 
+                seen.add(num);
         }
         return ans;
     }
