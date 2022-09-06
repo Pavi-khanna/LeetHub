@@ -18,10 +18,10 @@ class MedianFinder {
         // else list.add(-idx-1, num);
         
         // 5*logn
-        minHeap.add(num);
-        maxHeap.add(minHeap.poll());
-        if(minHeap.size()<maxHeap.size()) {
-            minHeap.add(maxHeap.poll());
+        maxHeap.add(num);
+        minHeap.add(maxHeap.poll());
+        if(minHeap.size()>maxHeap.size()) {
+            maxHeap.add(minHeap.poll());
         }
     }
     
@@ -36,7 +36,7 @@ class MedianFinder {
         // return (n%2!=0 ? list.get(n/2) : ((double) list.get(n/2-1) +list.get(n/2))*0.5);
         
         // 1
-        return minHeap.size()>maxHeap.size() ? minHeap.peek() : 
+        return minHeap.size()!=maxHeap.size() ? maxHeap.peek() : 
                         ((double) minHeap.peek() + maxHeap.peek())*0.5;
     }
 }
