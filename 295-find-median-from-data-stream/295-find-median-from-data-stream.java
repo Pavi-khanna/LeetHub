@@ -36,7 +36,7 @@ class MedianFinder {
         // return (n%2!=0 ? list.get(n/2) : ((double) list.get(n/2-1) +list.get(n/2))*0.5);
         
         // 1
-        return minHeap.size()!=maxHeap.size() ? maxHeap.peek() : 
+        return minHeap.size()<maxHeap.size() ? maxHeap.peek() : 
                         ((double) minHeap.peek() + maxHeap.peek())*0.5;
     }
 }
