@@ -32,13 +32,35 @@ class Solution {
         
         
         // k*n, 1
-        if (lists == null || lists.length == 0) {
-            return null;
+        // if (lists == null || lists.length == 0) {
+        //     return null;
+        // }
+        // for (int i = 1; i < lists.length; ++i) {
+        //     lists[0] = mergeTwoLists(lists[0], lists[i]);
+        // }
+        // return lists[0];
+        
+        
+        // n*logk, n
+        Queue<ListNode> minHeap = new PriorityQueue<ListNode>(new Comparator<ListNode>(){
+            @Override
+            public int compare(ListNode l1, ListNode l2) {
+                return l1.val-l2.val;
+            }
+        });
+        for(ListNode l : lists) {
+            if(l!=null) {
+                minHeap.add(l);
+            }
         }
-        for (int i = 1; i < lists.length; ++i) {
-            lists[0] = mergeTwoLists(lists[0], lists[i]);
+        ListNode head = new ListNode(), tail = head;
+        while(!minHeap.isEmpty()) {
+            tail.next = minHeap.poll();
+            tail = tail.next;
+            ListNode next = tail.next;
+            if(next!=null) minHeap.add(next);
         }
-        return lists[0];
+        return head.next;
     }
     
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
