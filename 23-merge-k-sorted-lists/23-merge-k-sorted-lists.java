@@ -42,25 +42,42 @@ class Solution {
         
         
         // n*logk, n
-        Queue<ListNode> minHeap = new PriorityQueue<ListNode>(new Comparator<ListNode>(){
-            @Override
-            public int compare(ListNode l1, ListNode l2) {
-                return l1.val-l2.val;
-            }
-        });
-        for(ListNode l : lists) {
-            if(l!=null) {
-                minHeap.add(l);
-            }
+        // Queue<ListNode> minHeap = new PriorityQueue<ListNode>(new Comparator<ListNode>(){
+        //     @Override
+        //     public int compare(ListNode l1, ListNode l2) {
+        //         return l1.val-l2.val;
+        //     }
+        // });
+        // for(ListNode l : lists) {
+        //     if(l!=null) {
+        //         minHeap.add(l);
+        //     }
+        // }
+        // ListNode head = new ListNode(), tail = head;
+        // while(!minHeap.isEmpty()) {
+        //     tail.next = minHeap.poll();
+        //     // System.out.println(tail.val);
+        //     tail = tail.next;
+        //     ListNode next = tail.next;
+        //     if(next!=null) minHeap.add(next);
+        // }
+        // return head.next;
+        
+        
+        // 
+        if(lists.length==0){
+        return null;
+    }
+    int interval = 1;
+    while(interval<lists.length){
+        // System.out.println(lists.length);
+        for (int i = 0; i + interval< lists.length; i=i+interval*2) {
+            lists[i]=mergeTwoLists2(lists[i],lists[i+interval]);            
         }
-        ListNode head = new ListNode(), tail = head;
-        while(!minHeap.isEmpty()) {
-            tail.next = minHeap.poll();
-            tail = tail.next;
-            ListNode next = tail.next;
-            if(next!=null) minHeap.add(next);
-        }
-        return head.next;
+        interval*=2;
+    }
+
+    return lists[0];
     }
     
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -81,4 +98,27 @@ class Solution {
         tail.next = l1 == null ? l2 : l1;
         return prehead.next;
     }
+    
+    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+    ListNode h = new ListNode(0);
+    ListNode ans=h;
+    while (l1 != null && l2 != null) {
+        if (l1.val < l2.val) {
+            h.next = l1;
+            h = h.next;
+            l1 = l1.next;
+        } else {
+            h.next = l2;
+            h = h.next;
+            l2 = l2.next;
+        }
+    }
+    if(l1==null){
+        h.next=l2;
+    }
+    if(l2==null){
+        h.next=l1;
+    } 
+    return ans.next;
+}
 }
