@@ -13,8 +13,7 @@ class Solution {
         l1 = reverseList(l1);
         l2 = reverseList(l2);
         
-        ListNode l = addTwoNumbers1(l1,l2);
-        return reverseList(l);
+        return reverseList(addTwoNumbers1(l1,l2));
     }
     
     public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
