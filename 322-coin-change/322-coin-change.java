@@ -24,7 +24,7 @@ class Solution {
         // }
         if(n==0) {
              if(W==0) return 0;
-             else return Integer.MAX_VALUE-1;
+             else return Integer.MAX_VALUE-1; // 2, 3 => int min
          }
          
          if(coins[n-1] > W) {
@@ -60,7 +60,7 @@ class Solution {
                  if(coins[i-1] > j) {
                     t[i][j] = t[i-1][j];
                  } else {
-                    t[i][j] =   Math.min(1+t[i][j-coins[i-1]] , t[i-1][j]);
+                    t[i][j] = Math.min(1+t[i][j-coins[i-1]] , t[i-1][j]);
                  }
              }
          }
