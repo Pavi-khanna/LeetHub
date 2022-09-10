@@ -15,31 +15,38 @@ class Solution {
         // return max;
         
         
-        if(intervals.length == 0 || intervals == null) {return 0;}
-        
-        int[] starts = new int[intervals.length];
-        int[] ends = new int[intervals.length];
-        for (int i = 0; i < intervals.length; i++) {
-            starts[i] = intervals[i][0];
-            ends[i] = intervals[i][1];
-        }
-        Arrays.sort(starts);
-        Arrays.sort(ends);
-        int start=intervals[0][0];
-        int end = intervals[0][1];
-        
-        int count=0, endItr=0;
-        for(int i=0; i<intervals.length; i++) {
-            // System.out.println(count);
-            if(starts[i]<ends[endItr]) { 
-                // end = Math.min(end,intervals[i][1]); 
-                count++; 
-            } else {
-                // start = intervals[i][0];
-                // end = intervals[i][1];
-                endItr++;
+        Arrays.sort(intervals,(a,b)->(a[0]-b[0]));
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a,b)->(a[1]-b[1]));
+        for(int[] i:intervals){
+            if(!pq.isEmpty()&&pq.peek()[1]<=i[0]){
+                pq.poll();
             }
+            pq.add(i);
         }
-        return count;
+        return pq.size();
+        
+        
+//         if(intervals.length == 0 || intervals == null) {return 0;}
+        
+//         int[] starts = new int[intervals.length];
+//         int[] ends = new int[intervals.length];
+//         for (int i = 0; i < intervals.length; i++) {
+//             starts[i] = intervals[i][0];
+//             ends[i] = intervals[i][1];
+//         }
+//         Arrays.sort(starts);
+//         Arrays.sort(ends);
+        
+//         int count=0, endItr=0;
+//         for(int i=0; i<intervals.length; i++) {
+            
+//             if(starts[i]<ends[endItr]) { 
+//                 count++; 
+//             } else {
+//                 endItr++;
+//             }
+//             System.out.println(endItr);
+//         }
+//         return count;
     }
 }
