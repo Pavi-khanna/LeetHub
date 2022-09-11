@@ -7,10 +7,26 @@ class Solution {
         // }
         
         
+        // n, n
         int n = nums.length;
-        int[] temp = new int[n];
-        for(int i=0; i<n; i++) temp[(i+k)%n] = nums[i];
-        for(int i=0; i<n; i++) nums[i]=temp[i];
+        // int[] temp = new int[n];
+        // for(int i=0; i<n; i++) temp[(i+k)%n] = nums[i];
+        // for(int i=0; i<n; i++) nums[i]=temp[i];
+        
+        
+        // n, 1
+        k%=n;
+        reverse(nums, 0, n-1);
+        reverse(nums, 0, k-1);
+        reverse(nums, k, n-1);
+    }
+    
+    public void reverse(int[] a, int start, int end) {
+        while(start < end) {
+            int num = a[start];
+            a[start++] = a[end];
+            a[end--] = num;
+        }
     }
     
     public void rotateByOne(int[] a) {
