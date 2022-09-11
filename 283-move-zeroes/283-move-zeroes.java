@@ -18,20 +18,30 @@ class Solution {
         
         
         
-        List<Integer> list = new ArrayList<>();
-        for(int num : nums) {
-            if(num!=0){
-                list.add(num);
-            }
+        // List<Integer> list = new ArrayList<>();
+        // for(int num : nums) {
+        //     if(num!=0){
+        //         list.add(num);
+        //     }
+        // }
+        // int zeroes = nums.length-list.size(), i=0;
+        // for(i=0; i<list.size(); i++) {
+        //     nums[i] = list.get(i);
+        // }
+        // while(zeroes > 0) {
+        //     nums[i++] = 0;
+        //     zeroes--;
+        // }
+        
+        
+        
+    int lastNonZeroFoundAt = 0;
+    for (int i = 0; i < nums.length; i++) {
+        if (nums[i] != 0) {
+            nums[lastNonZeroFoundAt++] = nums[i];
         }
-        int zeroes = nums.length-list.size(), i=0;
-        for(i=0; i<list.size(); i++) {
-            nums[i] = list.get(i);
-        }
-        while(zeroes > 0) {
-            nums[i++] = 0;
-            zeroes--;
-        }
+    }
+    for (int i = lastNonZeroFoundAt; i < nums.length; i++) nums[i] = 0;
         
         
         
