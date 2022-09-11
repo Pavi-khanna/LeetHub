@@ -15,12 +15,21 @@ class Solution {
 //         return -1;
         
         
-        int n = nums.length;
-        int sum = n*(n+1)/2;
-        for(int i=0; i<nums.length; i++) {
-            sum -= nums[i];
+        Set<Integer> numSet = new HashSet<>();
+        for(int num : nums) numSet.add(num);
+        
+        for(int i=0; i<nums.length+1; i++) {
+            if(!numSet.contains(i)) return i;
         }
-        return sum;
+        return -1;
+        
+        
+        // int n = nums.length;
+        // int sum = n*(n+1)/2;
+        // for(int i=0; i<nums.length; i++) {
+        //     sum -= nums[i];
+        // }
+        // return sum;
         
         
         // int sum = 0;
