@@ -9,13 +9,26 @@ class Solution {
         // return nums[nums.length-1];
         
         
-        Map<Integer, Integer> map = new HashMap<>();
+        // Map<Integer, Integer> map = new HashMap<>();
+        // for(int num : nums) {
+        //     map.put(num, map.getOrDefault(num,0)+1);
+        // }
+        // for(int num : nums) {
+        //     if(map.get(num) == 1) return num;
+        // }
+        // return 0;
+        
+        
+        
+        long setSum = 0, arraySum = 0;
+        Set<Integer> set = new HashSet<>();
         for(int num : nums) {
-            map.put(num, map.getOrDefault(num,0)+1);
+            if(!set.contains(num)) {
+                set.add(num);
+                setSum += num;
+            }
+            arraySum += num;
         }
-        for(int num : nums) {
-            if(map.get(num) == 1) return num;
-        }
-        return 0;
+        return (int)((3*(setSum) - arraySum) /2);
     }
 }
