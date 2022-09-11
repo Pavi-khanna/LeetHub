@@ -22,23 +22,23 @@ class Solution {
         
         
         // n, n
-        int setSum = 0, arraySum = 0;
-        Set<Integer> set = new HashSet<>();
-        for(int num : nums) {
-            if(!set.contains(num)) {
-                set.add(num);
-                setSum += num;
-            }
-            arraySum += num;
-        }
-        return 2*(setSum) - arraySum;
+        // int setSum = 0, arraySum = 0;
+        // Set<Integer> set = new HashSet<>();
+        // for(int num : nums) {
+        //     if(!set.contains(num)) {
+        //         set.add(num);
+        //         setSum += num;
+        //     }
+        //     arraySum += num;
+        // }
+        // return 2*(setSum) - arraySum;
         
         
         // n, 1
-        // int ans = nums[0];
-        // for(int i=1; i<nums.length; i++) {
-        //     ans ^= nums[i];
-        // }
-        // return ans;
+        int ans = 0;
+        for(int i=0; i<nums.length; i++) {
+            ans ^= nums[i];
+        }
+        return ans;
     }
 }
