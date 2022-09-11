@@ -17,7 +17,7 @@ class Solution {
         
         
         
-        
+        // n, n
         // List<Integer> list = new ArrayList<>();
         // for(int num : nums) {
         //     if(num!=0){
@@ -34,30 +34,27 @@ class Solution {
         // }
         
         
+    // n, 1
+    // int lastNonZeroFoundAt = 0;
+    // for (int i = 0; i < nums.length; i++) {
+    //     if (nums[i] != 0) {
+    //         nums[lastNonZeroFoundAt++] = nums[i];
+    //     }
+    // }
+    // for (int i = lastNonZeroFoundAt; i < nums.length; i++) nums[i] = 0;
         
-    int lastNonZeroFoundAt = 0;
-    for (int i = 0; i < nums.length; i++) {
-        if (nums[i] != 0) {
-            nums[lastNonZeroFoundAt++] = nums[i];
+        
+        
+        int n = nums.length, lastNonZeroFoundAt = 0;
+        if(n==0 || n==1)  return;
+        
+        for(int i=0; i<n; i++) {
+            if(nums[i] != 0) {
+                int temp = nums[i];
+                nums[i] = nums[lastNonZeroFoundAt];
+                nums[lastNonZeroFoundAt++] = temp;
+            }
         }
-    }
-    for (int i = lastNonZeroFoundAt; i < nums.length; i++) nums[i] = 0;
-        
-        
-        
-//         int n = nums.length;
-//         if(n==0 || n==1)  return;
-        
-//         int left = 0, right = 0;
-        
-//         while(right<n) {
-//             if(nums[right] == 0) ++right;
-//             else {
-//                 int temp = nums[left];
-//                 nums[left++] = nums[right];
-//                 nums[right++] = temp;
-//             }
-//         }
     }
 }
 // 0 1 0 3 12
