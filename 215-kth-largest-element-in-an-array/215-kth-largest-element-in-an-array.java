@@ -24,6 +24,7 @@ class Solution {
     
     public int kthSmallest(int[] arr, int low, int high, int k) {
         int partition = partition(arr, low, high);
+        // System.out.println(partition);
         if(partition == k-1) return arr[partition];
         else if (partition < k - 1)
             return kthSmallest(arr, partition + 1, high, k);
