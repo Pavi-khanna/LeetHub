@@ -6,20 +6,20 @@ class Solution {
         
         
         // nlogk, k
-//         PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
-//         List<Integer> list = new ArrayList<>();
+        PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
+        List<Integer> list = new ArrayList<>();
         
-//         // keep k largest elements in the heap
-//         for (int n: nums) {
-//           heap.add(n);
-//           if (heap.size() > k) heap.poll();
-//           // System.out.println(heap);
-//         }
-//         return heap.peek();
+        // keep k largest elements in the heap
+        for (int n: nums) {
+          heap.add(n);
+          if (heap.size() > k) heap.poll();
+          // System.out.println(heap);
+        }
+        return heap.peek();
         
         
         // quickselect
-        return kthSmallest(nums, 0, nums.length-1, nums.length-k+1);
+        // return kthSmallest(nums, 0, nums.length-1, nums.length-k+1);
     }
     
     public int kthSmallest(int[] arr, int low, int high, int k) {
