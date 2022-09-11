@@ -15,11 +15,19 @@ class Solution {
 //         return -1;
         
         
-        int sum = 0;
+        // int sum = 0;
+        // for(int i=1; i<=nums.length; i++) {
+        //     sum += i;
+        //     sum -= nums[i-1];
+        // }
+        // return sum;
+        
+        
+        int xor1 = 0, xor2 = 0;
         for(int i=1; i<=nums.length; i++) {
-            sum += i;
-            sum -= nums[i-1];
+            xor1 ^= i;
+            xor2 ^= nums[i-1];
         }
-        return sum;
+        return xor1^xor2;
     }
 }
