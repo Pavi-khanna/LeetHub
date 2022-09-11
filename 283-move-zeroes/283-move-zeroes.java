@@ -24,13 +24,13 @@ class Solution {
                 list.add(num);
             }
         }
-        int zeroes = nums.length-list.size();
-        while(zeroes > 0) {
-            list.add(0);
-            zeroes--;
-        }
-        for(int i=0; i<nums.length; i++) {
+        int zeroes = nums.length-list.size(), i=0;
+        for(i=0; i<list.size(); i++) {
             nums[i] = list.get(i);
+        }
+        while(zeroes > 0) {
+            nums[i++] = 0;
+            zeroes--;
         }
         
         
