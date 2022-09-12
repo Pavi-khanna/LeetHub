@@ -21,20 +21,19 @@ class Solution {
         // reverse(nums, k, n-1);
         
         
+        // n, 1
         k %= n;
         k = n-k;
         
         for(int i=0; i<gcd(k, n); i++) {
             int temp = nums[i], j = i;
             
-            while (true) {
-				int d = j + k;
-                if (d >= n)
-                    d = d - n;
-                if (d == i)
-                    break;
-                nums[j] = nums[d];
-                j = d;
+            while (j<n) {
+				int p = j + k;
+                if (p >= n) p -= n;
+                if (p == i) break;
+                nums[j] = nums[p];
+                j = p;
 			}
 			nums[j] = temp;
         }
