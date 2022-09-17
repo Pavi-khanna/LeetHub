@@ -15,10 +15,11 @@
  */
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {
-        // 
+        // h, 1
         if(root == null) return null;
         if(root.val == key) return helper(root);
-        TreeNode dummy = root;
+        
+        TreeNode node = root;
         while(root != null) {
             // go left
             if(root.val > key) {
@@ -37,7 +38,7 @@ class Solution {
                 }
             }
         }
-        return dummy;
+        return node;
     }
     
     public TreeNode helper(TreeNode root) {
