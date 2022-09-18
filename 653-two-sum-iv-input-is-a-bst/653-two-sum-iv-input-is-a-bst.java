@@ -47,23 +47,25 @@ class BSTIterator {
 
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
-        List<Integer> list = new ArrayList<>();
-        inorder(root, list);
-        return twoSum(list, k);
+        // n, n
+        // List<Integer> list = new ArrayList<>();
+        // inorder(root, list);
+        // return twoSum(list, k);
         
         
-//         if(root == null) return false;
-//         BSTIterator l = new BSTIterator(root, false);
-//         BSTIterator r = new BSTIterator(root, true);
+        // n, 2h
+        if(root == null) return false;
+        BSTIterator l = new BSTIterator(root, false);
+        BSTIterator r = new BSTIterator(root, true);
         
-//         int i = l.next();
-//         int j = r.next();
-//         while(i<j) {
-//             if(i+j == k) return true;
-//             else if(i+j < k) i = l.next();
-//             else j = r.next();
-//         }
-//         return false;
+        int i = l.next();
+        int j = r.next();
+        while(i<j) {
+            if(i+j == k) return true;
+            else if(i+j < k) i = l.next();
+            else j = r.next();
+        }
+        return false;
     }
     
     public void inorder(TreeNode root, List<Integer> res) {
