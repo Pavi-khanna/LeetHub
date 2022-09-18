@@ -19,17 +19,14 @@ class Solution {
         Stack<TreeNode> st = new Stack<TreeNode>();
         TreeNode node = root;
         
-        while(true) {
-            if(node!=null) {
+        while(node!=null || !st.isEmpty()) {
+            while(node!=null) {
                 st.push(node);
                 node=node.left;
-            } else {
-                if(st.isEmpty()) break;
-                
-                node = st.pop();
-                res.add(node.val);
-                node=node.right;
-            }
+            }                
+            node = st.pop();
+            res.add(node.val);
+            node=node.right;
         }
         // inorder(root,res);
         return res;
