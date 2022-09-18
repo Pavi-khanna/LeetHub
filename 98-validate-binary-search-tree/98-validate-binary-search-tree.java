@@ -20,8 +20,26 @@ class Solution {
         
         
         // n, n
-        long[] prev = {Long.MIN_VALUE};
-        return inorder(root, prev);
+        // long[] prev = {Long.MIN_VALUE};
+        // return inorder(root, prev);
+        
+        
+        // n, n
+        Stack<TreeNode> st = new Stack<TreeNode>();
+        TreeNode node = root;
+        long prev = Long.MIN_VALUE;
+        
+        while(node!=null || !st.isEmpty()) {
+            while(node!=null) {
+                st.push(node);
+                node=node.left;
+            }                
+            node = st.pop();
+            if(node.val<=prev) return false;
+            prev = node.val;
+            node=node.right;
+        }
+        return true;
     }
     
     public boolean isValidBST(TreeNode root, long min, long max) {
