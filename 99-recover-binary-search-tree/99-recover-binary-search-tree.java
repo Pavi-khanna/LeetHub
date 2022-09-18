@@ -14,15 +14,20 @@
  * }
  */
 class Solution {
+    TreeNode x = null, y = null, pred = null;
     
     public void recoverTree(TreeNode root) {
         // n, n
-        List<Integer> list = new ArrayList<>();
-        TreeNode node = root;
-        inorder(node, list);
+//         List<Integer> list = new ArrayList<>();
+//         TreeNode node = root;
+//         inorder(node, list);
         
-        int[] swapped = findTwoSwapped(list);
-        recover(root, 2, swapped[0], swapped[1]);
+//         int[] swapped = findTwoSwapped(list);
+//         recover(root, 2, swapped[0], swapped[1]);
+        
+        
+        findTwoSwapped(root);
+        swap(x, y);
     }
     
     public void inorder(TreeNode root, List<Integer> nums) {
@@ -31,6 +36,24 @@ class Solution {
         nums.add(root.val);
         inorder(root.right, nums);
     }
+    
+  public void findTwoSwapped(TreeNode root) {
+    if (root == null) return;
+    findTwoSwapped(root.left);
+    if (pred != null && root.val < pred.val) {
+      y = root;
+      if (x == null) x = pred;
+      else return;
+    }
+    pred = root;
+    findTwoSwapped(root.right);
+  }
+    
+  public void swap(TreeNode a, TreeNode b) {
+    int tmp = a.val;
+    a.val = b.val;
+    b.val = tmp;
+  }
     
   public int[] findTwoSwapped(List<Integer> nums) {
     int n = nums.size();
