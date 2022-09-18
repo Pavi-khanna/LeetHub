@@ -15,21 +15,21 @@
  */
 class Solution {
     public TreeNode bstFromPreorder(int[] preorder) {
-        int len = preorder.length;
-        int[] inorder = Arrays.copyOf(preorder, len);
-        Arrays.sort(inorder);
-        Map<Integer, Integer> indexMap = new HashMap<>();
-        for(int i=0; i< len; i++) {
-            indexMap.put(inorder[i], i);
-        }
+        // nlogn, n
+//         int len = preorder.length;
+//         int[] inorder = Arrays.copyOf(preorder, len);
+//         Arrays.sort(inorder);
+//         Map<Integer, Integer> indexMap = new HashMap<>();
+//         for(int i=0; i< len; i++) {
+//             indexMap.put(inorder[i], i);
+//         }
+                
+//         TreeNode root = buildBT(preorder, 0, len-1, inorder, 0, len-1, indexMap);
+//         return root;
         
-        // System.out.println(Arrays.toString(inorder));
         
-        TreeNode root = buildBT(preorder, 0, len-1, inorder, 0, len-1, indexMap);
-        return root;
-        
-        
-        // return bstFromPreorder(preorder, Integer.MAX_VALUE, new int[]{0});
+        // n, n
+        return bstFromPreorder(preorder, Integer.MAX_VALUE, new int[]{0});
     }
     
     public TreeNode buildBT(int[] preorder, int preStart, int preEnd,
