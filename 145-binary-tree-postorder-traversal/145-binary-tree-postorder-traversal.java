@@ -35,26 +35,25 @@ class Solution {
         
         
         // 2n, n
-        // Stack<TreeNode> st = new Stack<>();
-        // while (cur != null || !st.isEmpty()) {
-        //     if (cur != null) {
-        //         st.push(cur);
-        //         cur = cur.left;
-        //     } else {
-        //         TreeNode temp = st.peek().right;
-        //         if (temp == null) {
-        //             temp = st.peek();
-        //             st.pop();
-        //             postOrder.add(temp.val);
-        //             while (!st.isEmpty() && temp == st.peek().right) {
-        //                 temp = st.peek();
-        //                 st.pop();
-        //                 postOrder.add(temp.val);
-        //             }
-        //         } else cur = temp;
-        //     }
-        // }
-        postorder(cur,postOrder);
+        Stack<TreeNode> st = new Stack<>();
+        while (cur != null || !st.isEmpty()) {
+            if (cur != null) {
+                st.push(cur);
+                cur = cur.left;
+            } else {
+                TreeNode temp = st.peek().right;
+                if (temp == null) {
+                    temp = st.pop();
+                    postOrder.add(temp.val);
+                    while (!st.isEmpty() && temp == st.peek().right) {
+                        temp = st.peek();
+                        st.pop();
+                        postOrder.add(temp.val);
+                    }
+                } else cur = temp;
+            }
+        }
+        // postorder(cur,postOrder);
         return postOrder;
     }
     
