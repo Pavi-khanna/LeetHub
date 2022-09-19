@@ -45,8 +45,8 @@ class Solution {
         int leftHeight = dfsHeight(root.left);
         int rightHeight = dfsHeight(root.right);
         
-        if(leftHeight == -1 || rightHeight == -1) return -1;
-        if(Math.abs(leftHeight-rightHeight)>1) return -1;
+        if(leftHeight == -1 || rightHeight == -1 || 
+           Math.abs(leftHeight-rightHeight)>1) return -1;
         
         return 1+Math.max(leftHeight,rightHeight);
     }
