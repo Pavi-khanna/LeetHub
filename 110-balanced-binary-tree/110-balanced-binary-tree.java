@@ -15,6 +15,7 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
+        // n^2, n
 //         if(root == null) return true;
         
 //         int leftHeight = height(root.left);
@@ -27,6 +28,7 @@ class Solution {
 //         return true;
         
         
+        // n, n
         return dfsHeight(root) != -1;
     }
     
