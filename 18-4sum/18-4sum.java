@@ -10,11 +10,11 @@ class Solution {
             // traverse i+1 to n-1
             for(int j=i+1;j<n;j++) {
                 // 2 pointers for finding new target
-                int newTarget = target-nums[i]-nums[j];
+                // int newTarget = target-nums[i]-nums[j];
         
                 // twoSumBrute(nums, i, res);
-                twoSum(nums, i, j, res, target);
-                // twoSumII(nums, i, j, res, newTarget);
+                // twoSum(nums, i, j, res, target);
+                twoSumII(nums, i, j, res, target);
                 while(j+1<n && nums[j+1]==nums[j]) ++j;
             }
             // skip duplicates in i
@@ -68,10 +68,10 @@ class Solution {
         }
     }
     
-    void twoSumII(int[] nums, int i, int j, List<List<Integer>> res, int target) {
+    void twoSumII(int[] nums, int i, int j, List<List<Integer>> res, long target) {
         int lo = j + 1, hi = nums.length - 1;
         while (lo < hi) {
-            int sum = nums[lo] + nums[hi];
+            long sum = (long)nums[i] + nums[j] + nums[lo] + nums[hi];
             
             if (sum < target) {
                 ++lo;
