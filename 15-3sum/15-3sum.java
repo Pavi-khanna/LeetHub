@@ -84,9 +84,9 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             if(dups.add(nums[i])) {
                 for(int j=i+1;j<nums.length;j++){
-                int sum = nums[i] + nums[j];
-                if(indicies.containsKey(-sum)){
-                    int index = indicies.get(-sum);
+                int complement = 0 - nums[i] - nums[j];
+                if(indicies.containsKey(complement)){
+                    int index = indicies.get(complement);
                     if(index !=i && index !=j){
                         List<Integer> l =Arrays.asList(nums[index], nums[i],nums[j]);
                         Collections.sort(l);
@@ -94,7 +94,7 @@ class Solution {
                     }
                 }
             }
-            }
+          }
         }
         return new ArrayList<>(ans);
         
