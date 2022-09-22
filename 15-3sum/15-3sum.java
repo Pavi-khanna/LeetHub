@@ -72,24 +72,31 @@ class Solution {
         // return res;
         
         
-        Set<List<Integer>> res = new HashSet<>();
+        if(nums.length < 3){
+            return new ArrayList<>();
+        }
+        Map<Integer, Integer> indicies = new HashMap<>();
+        Set<List<Integer>> ans = new HashSet<>();
         Set<Integer> dups = new HashSet<>();
-        Map<Integer, Integer> seen = new HashMap<>();
-
-        for(int i=0; i<nums.length; i++) {
+        for(int i=0;i<nums.length;i++){
+            indicies.put(nums[i],i);
+        }
+        for(int i=0;i<nums.length;i++){
             if(dups.add(nums[i])) {
-                for (int j = i + 1; j < nums.length; ++j) {
-                    int complement = 0 - nums[i] - nums[j];
-                    if (seen.containsKey(complement) && seen.get(complement)==i) {
-                        List<Integer> list = Arrays.asList(nums[i], nums[j], complement);
-                        Collections.sort(list);
-                        res.add(list);
+                for(int j=i+1;j<nums.length;j++){
+                int sum = nums[i] + nums[j];
+                if(indicies.containsKey(-sum)){
+                    int index = indicies.get(-sum);
+                    if(index !=i && index !=j){
+                        List<Integer> l =Arrays.asList(nums[index], nums[i],nums[j]);
+                        Collections.sort(l);
+                        ans.add(l);
                     }
-                    seen.put(nums[j], i);
                 }
             }
+            }
         }
-        return new ArrayList<>(res);
+        return new ArrayList<>(ans);
         
         
          // n^2, n
