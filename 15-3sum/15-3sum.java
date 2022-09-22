@@ -61,15 +61,35 @@ class Solution {
         
         
         // n^2, n
-        Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
-            if (i == 0 || nums[i - 1] != nums[i]) {
-                // twoSumBrute(nums, i, res);
-                // twoSum(nums, i, res);
-                twoSumII(nums, i, res);
+        // Arrays.sort(nums);
+        // List<List<Integer>> res = new ArrayList<>();
+        // for (int i = 0; i < nums.length && nums[i] <= 0; ++i)
+        //     if (i == 0 || nums[i - 1] != nums[i]) {
+        //         // twoSumBrute(nums, i, res);
+        //         // twoSum(nums, i, res);
+        //         twoSumII(nums, i, res);
+        //     }
+        // return res;
+        
+        
+        Set<List<Integer>> res = new HashSet<>();
+        Set<Integer> dups = new HashSet<>();
+        Map<Integer, Integer> seen = new HashMap<>();
+
+        for(int i=0; i<nums.length; i++) {
+            if(dups.add(nums[i])) {
+                for (int j = i + 1; j < nums.length; ++j) {
+                    int complement = 0 - nums[i] - nums[j];
+                    if (seen.containsKey(complement) && seen.get(complement)==i) {
+                        List<Integer> list = Arrays.asList(nums[i], nums[j], complement);
+                        Collections.sort(list);
+                        res.add(list);
+                    }
+                    seen.put(nums[j], i);
+                }
             }
-        return res; 
+        }
+        return new ArrayList<>(res);
         
         
          // n^2, n
@@ -94,7 +114,7 @@ class Solution {
     void twoSumBrute(int[] nums, int k, List<List<Integer>> res) {
         for (int i = k + 1; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == 0 - nums[i] -nums[k]) {
+                if (nums[j] == 0 - nums[i] - nums[k]) {
                     res.add(Arrays.asList(nums[k], nums[i], nums[j]));
                 }
                 while (j + 1 < nums.length && nums[j] == nums[j + 1]) ++j;
@@ -106,7 +126,7 @@ class Solution {
     void twoSum(int[] nums, int i, List<List<Integer>> res) {
         Set<Integer> seen = new HashSet<Integer>();
         for (int j = i + 1; j < nums.length; ++j) {
-            int complement = -nums[i] - nums[j];
+            int complement = 0 - nums[i] - nums[j];
             if (seen.contains(complement)) {
                 res.add(Arrays.asList(nums[i], nums[j], complement));
                 while (j + 1 < nums.length && nums[j] == nums[j + 1]) ++j;
