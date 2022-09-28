@@ -20,7 +20,7 @@ class Solution {
             }
             set.add(num);
             
-            if(set.size()>k) {
+            if(set.size()>k) { // oldest ele
                 set.remove(nums[i-k]);
             }
         }
