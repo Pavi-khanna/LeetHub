@@ -11,7 +11,7 @@ class Solution {
         int p1 = m - 1;
         int p2 = n - 1;
         
-        for (int p = m + n - 1; p >= 0; p--) {
+        for (int p = nums1.length-1; p >= 0; p--) {
             if (p2 < 0) {
                 break;
             }
