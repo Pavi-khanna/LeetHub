@@ -1,11 +1,11 @@
 class MovingAverage {
-    Queue<Integer> q;
+    Deque<Integer> q;
     int size;
     double sum = 0;
 
     public MovingAverage(int size) {
         this.size = size;
-        q = new LinkedList<>();
+        q = new ArrayDeque<>();
     }
     
     public double next(int val) {
