@@ -1,12 +1,12 @@
 class Solution {
     public int missingNumber(int[] nums) {
+        // nlogn, n
 //         Arrays.sort(nums);
 //         if (nums[nums.length-1] != nums.length) {
 //             return nums.length;
 //         } else if (nums[0] != 0) {
 //             return 0;
 //         }
-        
 //         for(int i=1;i<nums.length;i++) {
 //             if(nums[i] != nums[i-1]+1) {
 //                 return nums[i-1]+1;
@@ -15,21 +15,22 @@ class Solution {
 //         return -1;
         
         
-        Set<Integer> numSet = new HashSet<>();
-        for(int num : nums) numSet.add(num);
+        // n, n
+//         Set<Integer> numSet = new HashSet<>();
+//         for(int num : nums) numSet.add(num);
+//         for(int i=0; i<=nums.length; i++) {
+//             if(!numSet.contains(i)) return i;
+//         }
+//         return -1;
         
-        for(int i=0; i<nums.length+1; i++) {
-            if(!numSet.contains(i)) return i;
+        
+        // n, n
+        int n = nums.length;
+        int sum = n*(n+1)/2;
+        for(int i=0; i<nums.length; i++) {
+            sum -= nums[i];
         }
-        return -1;
-        
-        
-        // int n = nums.length;
-        // int sum = n*(n+1)/2;
-        // for(int i=0; i<nums.length; i++) {
-        //     sum -= nums[i];
-        // }
-        // return sum;
+        return sum;
         
         
         // int sum = 0;
