@@ -1,21 +1,34 @@
 class MovingAverage {
-    Deque<Integer> q;
+    // Deque<Integer> q;
+    int[] q;
     int size;
+    int index=0,count=0;
     double sum = 0;
 
     public MovingAverage(int size) {
         this.size = size;
-        q = new ArrayDeque<>();
+        // q = new ArrayDeque<>();
+        q = new int[size];
     }
     
     public double next(int val) {
-        if(q.size()>=size) {
-            sum -= q.remove();
-        }
+//         if(q.size()>=size) {
+//             sum -= q.remove();
+//         }
+//         q.add(val);
+//         sum += val;
+//         return sum/q.size();
         
-        q.add(val);
-        sum += val;
-        return sum/q.size();
+        
+    if(index >= q.length) index = 0;
+    if(count < q.length) ++count;
+    
+    int current = q[index];
+    q[index] = val;
+    index++;
+    sum = sum - current + val;
+    
+    return sum/count;
     }
 }
 
