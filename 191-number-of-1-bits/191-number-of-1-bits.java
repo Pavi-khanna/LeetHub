@@ -12,11 +12,13 @@ public class Solution {
     // return bits;
         
         
-        int count = 0;
-        while (n != 0) {
-            count += (n & 1);
-            n >>>= 1;
-        }
-        return count;
+        // int count = 0;
+        // while (n != 0) {
+        //     count += (n & 1);
+        //     n >>>= 1; // >> no cz 11111111111111111111111111111101
+        // }
+        // return count;
+        
+        return Integer.bitCount(n);
     }
 }
