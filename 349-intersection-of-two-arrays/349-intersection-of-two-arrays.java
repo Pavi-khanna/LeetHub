@@ -52,6 +52,8 @@ class Solution {
         
         
         Set<Integer> set = new HashSet<>();
+        int[] temp = nums1;
+        if(nums1.length>nums2.length) { nums1 = nums2; nums2 = temp; }
         Arrays.sort(nums2);
         for (Integer num : nums1) {
             if (binarySearch(nums2, num)) {
