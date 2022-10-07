@@ -24,6 +24,7 @@ class MovingAverage {
     if(count < q.length) ++count;
     
     int current = q[index];
+    //System.out.println(current);
     q[index] = val;
     index++;
     sum = sum - current + val;
