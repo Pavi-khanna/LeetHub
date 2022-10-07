@@ -18,14 +18,24 @@ class Solution {
 //         return ans;
         
         
+//         List<Integer> list = new ArrayList<>();
+//         int[] map = new int[nums.length+1];
+        
+//         for(int num : nums) map[num]++;
+//         for(int i=1; i<map.length; i++) {
+//             // System.out.println(Arrays.toString(map));
+//             if(map[i]==0) list.add(i);
+//         }
+//         return list;
+        
+        
+        Map<Integer, Boolean> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], true);
+        }
         List<Integer> list = new ArrayList<>();
-        int[] map = new int[nums.length+1];
-        
-        for(int num : nums) map[num]++;
-        
-        for(int i=1; i<map.length; i++) {
-            // System.out.println(Arrays.toString(map));
-            if(map[i]==0) list.add(i);
+        for(int i=1; i<=nums.length; i++) {
+            if(!map.containsKey(i)) list.add(i);
         }
         return list;
     }
