@@ -12,11 +12,11 @@ public class Solution {
     // return bits;
         
         
-        int sum =0;
-        while(n!=0) {
-            sum++;
-            n &= (n-1);
+        int count = 0;
+        while (n != 0) {
+            count += (n & 1);
+            n >>>= 1;
         }
-        return sum;
+        return count;
     }
 }
