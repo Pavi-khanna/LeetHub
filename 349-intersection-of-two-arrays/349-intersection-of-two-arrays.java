@@ -16,8 +16,15 @@ class Solution {
         Set<Integer> set2 = new HashSet<>();
         for(int num : nums2) set2.add(num);
         
-        if(set1.size()<set2.size()) return setInt(set1, set2);
-        else return setInt(set2, set1);
+        // if(set1.size()<set2.size()) return setInt(set1, set2);
+        // else return setInt(set2, set1);
+        
+        set1.retainAll(set2);
+        
+        int[] op = new int[set1.size()];
+        int idx=0;
+        for(int s:set1) op[idx++] = s;
+        return op;
     }
     
     public int[] setInt(Set<Integer> set1, Set<Integer> set2) {
