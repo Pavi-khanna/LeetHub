@@ -17,6 +17,21 @@ class Solution {
             }
             // System.out.println(entry.getValue() + " "  + length);
         }
-        return oddChar ? length+maxOdd+1 : length+maxOdd;
+        return oddChar ? length+1 : length;
+        
+        
+//         int[] count = new int[128];
+//         for(char c : s.toCharArray()) count[c]++;
+//         boolean oddChar = false;
+        
+//         int ans = 0;
+//         for(int freq : count) {
+//             if(freq%2 == 0) ans += freq;
+//             else {
+//                 ans += (freq - 1);
+//                 oddChar = true;
+//             }
+//         }
+        
     }
 }
