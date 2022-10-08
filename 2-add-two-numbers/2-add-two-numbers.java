@@ -24,11 +24,11 @@ class Solution {
                 sum+=l2.val;
                 l2=l2.next;
             }
-            
             sum+=carry;
             carry=sum/10;
             ListNode node = new ListNode(sum%10);
             curr.next = node;
+            // System.out.println(first.next.val);
             curr = curr.next;
         }
         return first.next;
