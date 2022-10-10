@@ -3,10 +3,6 @@ class Solution {
         // 2^n*mlogm (m = 2^n) => n*2^2n, 
         Arrays.sort(nums);
         Set<List<Integer>> set = printAllSubSequences(0, new ArrayList<>(), nums, new HashSet<>());
-        List<List<Integer>> list = new ArrayList<>();
-        for(List<Integer> num : set) {
-            list.add(new ArrayList<>(num));
-        }
         return new ArrayList<>(set);
         // return printAllSubSequences(0, new ArrayList<>(), nums, new ArrayList<>());
 
