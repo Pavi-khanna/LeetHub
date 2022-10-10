@@ -48,6 +48,7 @@ class Solution {
             return res;
         }
         
+        // take it 1 time and then skip the next time
         prevSubSet.add(nums[i]);
         printAllSubSequences(i+1, prevSubSet, nums, res);
         
