@@ -3,6 +3,8 @@ class Solution {
         // n*2^n, n
         return printAllSubSequences(0, new ArrayList<>(), nums, new ArrayList<>());
         
+        
+        // n*2^n, n
         // List<List<Integer>> ans = new ArrayList<>();
         // findSubsets(0, nums, new ArrayList<>(), ans);
         // return ans;
@@ -24,6 +26,7 @@ class Solution {
     
     private void findSubsets(int index, int[] nums, List<Integer> ds, List<List<Integer>> ans) {
         ans.add(new ArrayList<>(ds));
+        // System.out.println(ans); 
         for(int i=index; i<nums.length;i++) {
             ds.add(nums[i]);
             findSubsets(i+1, nums, ds, ans);
