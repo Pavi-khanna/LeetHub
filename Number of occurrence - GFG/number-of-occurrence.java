@@ -36,20 +36,20 @@ public class Main {
 
 class Solution {
     int count(int[] nums, int n, int target) {
-        boolean isFirst = false;
-        int first = -1, last = -1;
-        for(int i=0; i<n; i++) {
-            if(nums[i]==target) {
-                if(!isFirst) { first = i; isFirst = true; }
-                last = i;
-            }
-        }
-        return first==-1 && last==-1 ? 0 : last-first+1;
-        
-        
-        // int first = first(nums, target, true);
-        // int last = first(nums, target, false);
+        // boolean isFirst = false;
+        // int first = -1, last = -1;
+        // for(int i=0; i<n; i++) {
+        //     if(nums[i]==target) {
+        //         if(!isFirst) { first = i; isFirst = true; }
+        //         last = i;
+        //     }
+        // }
         // return first==-1 && last==-1 ? 0 : last-first+1;
+        
+        
+        int first = first(nums, target, true);
+        int last = first(nums, target, false);
+        return first==-1 && last==-1 ? 0 : last-first+1;
     }
     
     public int first(int[] nums, int target, boolean isFirst) {
