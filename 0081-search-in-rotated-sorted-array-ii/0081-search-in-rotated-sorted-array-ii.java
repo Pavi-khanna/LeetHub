@@ -12,7 +12,7 @@ class Solution {
             if(nums[mid]==target) return true;
             
             // left sorted
-            if(nums[mid]>=nums[high]) {
+            if(nums[mid]>nums[high]) {
                 if(target>=nums[low] && target<=nums[mid]) high=mid-1;
                 else low=mid+1;
             }
