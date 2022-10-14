@@ -66,7 +66,7 @@ class Solution
         double finalValue = 0;
         
         for(int i=0; i<n; i++) {
-            if(arr[i].weight<leftOverWeight) {
+            if(arr[i].weight<=leftOverWeight) {
                 leftOverWeight -= arr[i].weight;
                 finalValue += arr[i].value;
             } else {
