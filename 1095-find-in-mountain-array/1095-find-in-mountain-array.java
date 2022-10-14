@@ -11,20 +11,16 @@ class Solution {
     public int findInMountainArray(int target, MountainArray mountainArr) {
         int start =0, end = mountainArr.length()-1;
         int peakIndex = findPeakIndex(mountainArr);
-        // System.out.println(peakIndex);
+        
         int right = searchReverse(target, mountainArr, peakIndex+1, end);
         int left = search(target, mountainArr, start, peakIndex);
-        // System.out.println(left+" "+right);
 
-        int ans = 0;
-        if(left!=-1) ans = left;
-        else if(right!=-1) ans = right;
-        
-        return left==-1 && right==-1 ? -1 : ans;
+        int ans = left==-1 && right==-1 ? -1 : (left!=-1 ? left : right);
+        return ans;
     }
     
     public int findPeakIndex(MountainArray mountainArr) {
-        int start =0, end = mountainArr.length()-1, mid=0, peak = 0, size = mountainArr.length(), left=0,right=0;
+        int start =0, end = mountainArr.length()-1, mid=0, size = mountainArr.length();
         if(size==1) return 0;
         while(start < end) {
             mid = start +(end-start)/2;
