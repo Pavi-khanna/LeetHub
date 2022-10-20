@@ -14,12 +14,14 @@ class Solution {
             return map.get(s.charAt(0));
         
         number += map.get(s.charAt(s.length()-1));
+        
         for(int i=s.length()-2;i>=0;i--) {
-            if(map.get(s.charAt(i+1)) > map.get(s.charAt(i))) {
-                number-=map.get(s.charAt(i));    
+            int value = map.get(s.charAt(i));
+            if(map.get(s.charAt(i+1)) > value) {
+                number-=value;    
             }
             else
-                number+=map.get(s.charAt(i));
+                number+=value;
         }
         return number;
     }
