@@ -13,10 +13,10 @@ class Solution {
         if(s.length()<2)
             return map.get(s.charAt(0));
         
-        for(int i=0;i<s.length();i++) {
-            if(i<s.length()-1 && map.get(s.charAt(i+1)) > map.get(s.charAt(i))) {
-                number+=map.get(s.charAt(i+1)) - map.get(s.charAt(i));    
-                i++;
+        number += map.get(s.charAt(s.length()-1));
+        for(int i=s.length()-2;i>=0;i--) {
+            if(map.get(s.charAt(i+1)) > map.get(s.charAt(i))) {
+                number-=map.get(s.charAt(i));    
             }
             else
                 number+=map.get(s.charAt(i));
