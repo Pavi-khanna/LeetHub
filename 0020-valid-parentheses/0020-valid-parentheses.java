@@ -17,6 +17,7 @@ class Solution {
 //         }
 //         return st.isEmpty();
         
+        
         Map<Character, Character> map = Map.of('(',')','{','}','[',']');
         Stack<Character> st = new Stack<>();
         
@@ -26,11 +27,8 @@ class Solution {
             if(map.containsKey(it)) st.push(it);
             else {
                 if(st.isEmpty()) return false;
-                char top = st.peek();
-                if(it == map.get(top)) {
-                    st.pop();
-                    continue;
-                } else return false;
+                char top = st.pop();
+                if(it != map.get(top)) return false;
             }
         }
         return st.isEmpty();
