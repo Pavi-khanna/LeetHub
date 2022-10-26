@@ -1,9 +1,9 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> combinations = new ArrayList();
-        // generateAll(new char[2 * n], 0, combinations);
+        generateAll(new char[2 * n], 0, combinations);
         
-        backtrack(combinations, new StringBuilder(), 0, 0, n);
+        // backtrack(combinations, new StringBuilder(), 0, 0, n);
         return combinations;
     }
     
