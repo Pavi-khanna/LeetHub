@@ -6,10 +6,10 @@ class Solution {
         if(nlen == 0) return 0;
         // if(needle.length() == 1) return haystack.indexOf(needle.charAt(0));
         
-        for(int i=0; i<haystack.length(); i++) {
+        for(int i=0; i<=haystack.length()-needle.length(); i++) {
             if(needle.charAt(0) == haystack.charAt(i)) {
                 int j=0;
-                while(j<nlen && i+nlen <= haystack.length()) {
+                while(j<nlen) {
                     if(needle.charAt(j) != haystack.charAt(i+j)) break;
                     j++;
                 }
