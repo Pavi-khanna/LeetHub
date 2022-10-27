@@ -12,6 +12,11 @@ class Solution {
         
         
         int first = first(nums, target, true);
+        
+        if(first == -1) {
+            return new int[] {-1, -1};
+        }
+        
         int last = first(nums, target, false);
         return new int[]{first, last};
     }
