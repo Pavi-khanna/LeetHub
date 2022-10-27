@@ -27,6 +27,8 @@ class Solution {
 //             }
 //         }
 //         return -1;
+        
+        
         int minIndex = findMin(nums);
         int left = search(nums, 0, minIndex, target);
         int right = search(nums, minIndex, nums.length-1, target);
