@@ -29,11 +29,30 @@ class Solution {
 //         return -1;
         
         
-        int minIndex = findMin(nums);
-        int left = search(nums, 0, minIndex, target);
-        int right = search(nums, minIndex, nums.length-1, target);
-        int ans = left==-1 && right==-1 ? -1 : (left!=-1 ? left : right);
-        return ans;
+        // int minIndex = findMin(nums);
+        // int left = search(nums, 0, minIndex, target);
+        // int right = search(nums, minIndex, nums.length-1, target);
+        // int ans = left==-1 && right==-1 ? -1 : (left!=-1 ? left : right);
+        // return ans;
+        
+        
+        int start = 0, end = nums.length-1, mid = start + (end-start)/2;
+        if(nums == null || nums.length == 0) return -1;
+        
+        while(start <= end) {   // 2,1 => 1
+            mid = start + (end-start)/2;
+            
+            // left side
+            if(nums[mid]==target) return mid;
+            else if(nums[mid] < nums[end]) {
+                if (target <= nums[end] && target > nums[mid]) start = mid + 1;
+                else end = mid - 1;
+            } else { // right side
+                if (target >= nums[start] && target < nums[mid]) end = mid - 1;
+                else start = mid + 1;
+            }
+        }
+        return -1;
     }
     
     public int search(int[] nums, int start, int end, int target) {
