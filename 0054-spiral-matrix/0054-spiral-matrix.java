@@ -14,11 +14,11 @@ class Solution {
             // if(!(left<right && up<down)) { break; }
             
             // bottom row
-            if(up!=down)
+            if(up<down)
                 for (int col = right - 1; col >= left; col--) result.add(matrix[down][col]);   
             
             // left col
-            if(left!=right)
+            if(left<right)
                 for (int row = down - 1; row > up; row--) result.add(matrix[row][left]);
             
             left++; right--; up++; down--;
