@@ -2,9 +2,7 @@ class Solution {
     public List<List<Integer>> permute(int[] nums) {
         // n!*n, n, n!+2n
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> ds = new ArrayList<>();
-        boolean[] freq = new boolean[nums.length];
-        recurPermute(nums, new ArrayList<>(), ans, freq);
+        recurPermute(nums, new ArrayList<>(), ans, new boolean[nums.length]);
         return ans;
         
         // n!*n, n, n!+ n - no extra map used
