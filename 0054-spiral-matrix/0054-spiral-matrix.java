@@ -11,13 +11,15 @@ class Solution {
             // right col
             for(int row = up + 1; row <= down; row++) result.add(matrix[row][right]);
             
-            if(!(left<right && up<down)) { break; }
+            // if(!(left<right && up<down)) { break; }
             
             // bottom row
-            for (int col = right - 1; col >= left; col--) result.add(matrix[down][col]);   
+            if(up!=down)
+                for (int col = right - 1; col >= left; col--) result.add(matrix[down][col]);   
             
             // left col
-            for (int row = down - 1; row > up; row--) result.add(matrix[row][left]);
+            if(left!=right)
+                for (int row = down - 1; row > up; row--) result.add(matrix[row][left]);
             
             left++; right--; up++; down--;
         }
