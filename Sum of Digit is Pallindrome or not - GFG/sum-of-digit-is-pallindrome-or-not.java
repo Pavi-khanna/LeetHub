@@ -26,6 +26,7 @@ class Solution {
         int num=0;
         while(N>0) {num += N%10; N/=10;}
         if(num < 0) return  0; 
+        
         int reversed = 0, remainder, original = num;
         while(num >= 10) {
             remainder = num % 10;
