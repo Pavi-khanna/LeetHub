@@ -1,7 +1,6 @@
 # Sum of Digit is Pallindrome or not
 ## Easy
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a number N.Find if the digit sum(or sum of digits) of N is a Palindrome number or not.<br>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a number N.Find if the digit sum(or sum of digits) of N is a Palindrome number or not.<br>
 Note:A Palindrome number is a number which stays the same when reversed.Example- 121,131,7 etc.</span></p>
 
 <p><strong><span style="font-size:18px">Example 1:</span></strong></p>
@@ -36,5 +35,4 @@ You don't need to read input or print anything.Your Task is to complete the func
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1&lt;=N&lt;=10<sup>9</sup></span></p>
- <p></p>
-            </div>
+</div>
