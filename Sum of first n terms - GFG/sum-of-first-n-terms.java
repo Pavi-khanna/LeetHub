@@ -21,16 +21,6 @@ class GFG {
 
 
 // User function Template for Java
-class Series {
-    long sum;
-    long n;
-    
-    Series(long n, long sum) {
-        this.sum = sum;
-        this.n = n;
-    }
-}
-    
 class Solution {
     long sumOfSeries(long N) {
         // return sum(N, 0L);
