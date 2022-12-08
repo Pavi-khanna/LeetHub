@@ -30,14 +30,24 @@ class GFG
 class Solution{
     static ArrayList<Long> factorialNumbers(long N){
         ArrayList<Long> factorialList = new ArrayList<>();
-        long factorial = 1, x = 2;
+        // long factorial = 1, x = 2;
         
-        while(factorial <= N) {
-            factorialList.add(factorial);
+        // while(factorial <= N) {
+        //     factorialList.add(factorial);
             
-            factorial = factorial*x;
-            x++;
-        }
+        //     factorial = factorial*x;
+        //     x++;
+        // }
+        
+        factorials(N, factorialList, 1, 2);
         return factorialList;
+    }
+    
+    static void factorials(long n, ArrayList<Long> factorialList, long factorial, long x) {
+        if(factorial>n) return;
+        
+        factorialList.add(factorial);
+        factorial = factorial*x;
+        factorials(n, factorialList, factorial, ++x);
     }
 }
