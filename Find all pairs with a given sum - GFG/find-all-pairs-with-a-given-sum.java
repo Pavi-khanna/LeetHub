@@ -81,14 +81,21 @@ class pair  {
 
 class Solution {
     public pair[] allPairs( long a[], long b[], long n, long m, long k) {
+        Map<Long, Integer> map = new HashMap<>();
         List<pair> result = new ArrayList<>();
         
-        for(int i=0; i<n; i++) {
-            for(int j=0; j<m; j++) {
-                if(a[i]+b[j] == k) {
-                    result.add(new pair(a[i], b[j]));
-                }
-            }
+        // for(int i=0; i<n; i++) {
+        //     for(int j=0; j<m; j++) {
+        //         if(a[i]+b[j] == k) {
+        //             result.add(new pair(a[i], b[j]));
+        //         }
+        //     }
+        // }
+        
+        for(int i=0; i<n; i++) map.put(a[i], map.getOrDefault(a[i], 0)+1);
+        
+        for(int i=0; i<m; i++) {
+            if(map.containsKey(k-b[i])) result.add(new pair(k-b[i], b[i]));
         }
         
         pair[] pairs = new pair[result.size()];
