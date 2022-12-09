@@ -53,16 +53,38 @@ class Solution
 {
     //Function to return a list containing the union of the two arrays.
     public static ArrayList<Integer> findUnion(int arr1[], int arr2[], int n, int m) {
-        Set<Integer> union = new HashSet<>();
+        // Set<Integer> union = new HashSet<>();
         
-        for(int i=0; i<n; i++) {
-            union.add(arr1[i]);
+        // for(int i=0; i<n; i++) {
+        //     union.add(arr1[i]);
+        // }
+        // for(int i=0; i<m; i++) {
+        //     union.add(arr2[i]);
+        // }
+        // ArrayList<Integer> list = new ArrayList<>(union);
+        // Collections.sort(list);
+        // return list;
+        
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        int i=0, j=0;
+        
+        while(i<n && j<m) {
+            while(i+1<n && arr1[i]==arr1[i+1]) i++;
+            while(j+1<m && arr2[j]==arr2[j+1]) j++;
+            
+            if(arr1[i]<arr2[j]) list.add(arr1[i++]);
+            else if(arr2[j]<arr1[i]) list.add(arr2[j++]);
+            else { list.add(arr2[j++]); i++; }
         }
-        for(int i=0; i<m; i++) {
-            union.add(arr2[i]);
+        while(i<n) {
+            while(i+1<n && arr1[i]==arr1[i+1]) i++;
+            list.add(arr1[i++]);
         }
-        ArrayList<Integer> list = new ArrayList<>(union);
-        Collections.sort(list);
+        while(j<m) {
+            while(j+1<m && arr2[j]==arr2[j+1]) j++;
+            list.add(arr2[j++]);
+        }
         return list;
     }
 }
