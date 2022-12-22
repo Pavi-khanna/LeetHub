@@ -28,7 +28,7 @@ class Solution {
         return (N*(N+1))*(N*(N+1))/4;
     }
     
-    long sum(long n, Long sum) {
+    long sum(long n, long sum) {
         if(n == 0) return sum;
         
         sum += n*n*n;
