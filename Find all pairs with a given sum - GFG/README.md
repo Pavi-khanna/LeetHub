@@ -2,7 +2,7 @@
 ## Easy
 <div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given two unsorted arrays <strong>A</strong> of size <strong>N</strong> and <strong>B</strong> of size <strong>M</strong> of distinct elements, the task is to find all pairs from both arrays whose sum is equal to <strong>X</strong>.</span></p>
 
-<p><span style="font-size:18px"><strong>Note:&nbsp;</strong>All pairs should be printed in <strong>increasing </strong>order of u. For eg. for two pairs (u<sub>1</sub>,v<sub>1</sub>) and (u<sub>2</sub>,v<sub>2</sub>), if u<sub>1</sub>2&nbsp;then<br>
+<p><span style="font-size:18px"><strong>Note:&nbsp;</strong>All pairs should be printed in <strong>increasing </strong>order of u. For eg. for two pairs (u<sub>1</sub>,v<sub>1</sub>) and (u<sub>2</sub>,v<sub>2</sub>), if u<sub>1&nbsp;</sub>&lt; u<sub>2</sub>&nbsp;then<br>
 (u<sub>1</sub>,v<sub>1</sub>) should be printed first else second.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
