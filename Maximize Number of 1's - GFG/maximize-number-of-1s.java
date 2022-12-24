@@ -33,6 +33,21 @@ class GFG {
 class Solve {
     // m is maximum of number zeroes allowed to flip
     int findZeroes(int nums[], int n, int m) {
+        // int max = 0;
+        // for(int i=0; i<n; i++) {
+        //     int zeroes = m;
+        //     for(int j=i; j<n; j++) {
+        //         if(nums[j]==0) {
+        //             if(zeroes>0) zeroes--;
+        //             else break;
+        //         }
+        //         max = Math.max(max, j-i+1);
+        //     }
+        // }
+        // return max;
+        
+        
+        
         int i = 0, j = 0;
         int numZeroes = 0, max = 0;
         
@@ -42,6 +57,7 @@ class Solve {
             if(nums[j]==0) numZeroes++;
             
             if(numZeroes > m) {
+                // move window fwd if m exhausted
                 if(nums[i]==0) numZeroes--;
                 i++;
             } else if(numZeroes <=m) {
