@@ -45,16 +45,33 @@ class Solution{
         while(start <= end) {
             int mid = start + (end-start)/2;
             
-            if(arr[mid]<x) {
+            if(arr[mid]==x) {
+                return mid;
+            }
+            else if(arr[mid]<x) {
                 res = mid;   // right m jaane se pehle chota no saved
                 start = mid+1;
-            } else if(arr[mid]>x) {
-                end = mid-1;
             } else {
-                return mid;
+                end = mid-1;
             }
         }
         return res;
+        
+        
+        // if (x >= arr[n - 1])
+        //     return n - 1;
+
+        // // If first element is greater than x
+        // if (x < arr[0])
+        //     return -1;
+
+        // // Linearly search for the first element
+        // // greater than x
+        // for (int i = 1; i < n; i++)
+        //     if (arr[i] > x)
+        //         return (i - 1);
+
+        // return -1;
         
         
         // ceil
