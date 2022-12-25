@@ -71,8 +71,7 @@ class Solve {
             
             if(arr[mid]==x) {
                 return arr[mid];
-            }
-            else if(arr[mid]<x) {
+            } else if(arr[mid]<x) {
                 res = mid;   // right m jaane se pehle chota no saved
                 start = mid+1;
             } else {
@@ -94,13 +93,13 @@ class Solve {
         while(start <= end) {
             int mid = start + (end-start)/2;
             
-            if(arr[mid]<x) {
+            if(arr[mid]==x) {
+                return arr[mid];
+            } else if(arr[mid]<x) {
                 start = mid+1;
-            } else if(arr[mid]>x) {
+            } else{
                 res = mid;  // left m jaane se pehle bda no saved
                 end = mid-1;
-            } else {
-                return arr[mid];
             }
         }
         return res!=-1 ? arr[res] : -1;
