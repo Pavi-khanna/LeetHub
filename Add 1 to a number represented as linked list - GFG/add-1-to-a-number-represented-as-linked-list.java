@@ -91,37 +91,36 @@ class Solution
         
         
         
-        // int carry = addWithCarry(head);
+        int carry = addWithCarry(head);
         
-        // if (carry > 0) {
-        //     Node newNode = new Node(carry);
-        //     newNode.next = head;
-        //     return newNode;
-        // }
-        // return head;
-        
-        
-        
-        
-        int carry = 1;
-        Node first = new Node(0);
-        head = reverse(head);
-        // first.next = head;
-        Node tail = first;
-        
-        while(head != null || carry==1) {
-            int sum = 0;
-            if(head!=null) {
-                sum+=head.data;
-                head=head.next;
-            }
-            sum+=carry;
-            carry=sum/10;
-            Node node = new Node(sum%10);
-            tail.next = node;
-            tail = tail.next;
+        if (carry > 0) {
+            Node newNode = new Node(carry);
+            newNode.next = head;
+            return newNode;
         }
-        return reverse(first.next);
+        return head;
+        
+        
+        
+        
+        // int carry = 1;
+        // Node first = new Node(0);
+        // head = reverse(head);
+        // Node tail = first;
+        
+        // while(head != null || carry==1) {
+        //     int sum = 0;
+        //     if(head!=null) {
+        //         sum+=head.data;
+        //         head=head.next;
+        //     }
+        //     sum+=carry;
+        //     carry=sum/10;
+        //     Node node = new Node(sum%10);
+        //     tail.next = node;
+        //     tail = tail.next;
+        // }
+        // return reverse(first.next);
     }
     
     static int addWithCarry(Node head) {
