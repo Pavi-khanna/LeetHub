@@ -61,31 +61,31 @@ class Solution
 {
     public static Node addOne(Node head) 
     { 
-        Node prev = head;
+        // Node prev = head;
         
-        if(head.next == null) {
-            head.data+=1;
-            return head;
-        }
+        // if(head.next == null) {
+        //     head.data+=1;
+        //     return head;
+        // }
         
-        Node curr = head;
-        while(curr.next != null) {
-            if(curr.data != 9) { prev = curr; }
-            curr = curr.next;
-        }
+        // Node curr = head;
+        // while(curr.next != null) {
+        //     if(curr.data != 9) { prev = curr; }
+        //     curr = curr.next;
+        // }
         
-        if(curr.data == 9 && prev != null) {
-            curr = prev;
-            curr.data += 1;
-            curr = curr.next;
-            while(curr != null) {
-                curr.data = 0;
-                curr = curr.next;
-            }
-        } else {
-            curr.data += 1;
-        }
-        return head;
+        // if(curr.data == 9 && prev != null) {
+        //     curr = prev;
+        //     curr.data += 1;
+        //     curr = curr.next;
+        //     while(curr != null) {
+        //         curr.data = 0;
+        //         curr = curr.next;
+        //     }
+        // } else {
+        //     curr.data += 1;
+        // }
+        // return head;
         
         
         
@@ -103,25 +103,25 @@ class Solution
         
         
         
-        // int carry = 1;
-        // Node first = new Node(0);
-        // head = reverse(head);
-        // first.next = head;
-        // Node tail = first;
+        int carry = 1;
+        Node first = new Node(0);
+        head = reverse(head);
+        first.next = head;
+        Node tail = first;
         
-        // while(head != null || carry==1) {
-        //     int sum = 0;
-        //     if(head!=null) {
-        //         sum+=head.data;
-        //         head=head.next;
-        //     }
-        //     sum+=carry;
-        //     carry=sum/10;
-        //     Node node = new Node(sum%10);
-        //     tail.next = node;
-        //     tail = tail.next;
-        // }
-        // return reverse(first.next);
+        while(head != null || carry==1) {
+            int sum = 0;
+            if(head!=null) {
+                sum+=head.data;
+                head=head.next;
+            }
+            sum+=carry;
+            carry=sum/10;
+            Node node = new Node(sum%10);
+            tail.next = node;
+            tail = tail.next;
+        }
+        return reverse(first.next);
     }
     
     static int addWithCarry(Node head) {
