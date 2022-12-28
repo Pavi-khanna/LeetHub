@@ -61,31 +61,31 @@ class Solution
 {
     public static Node addOne(Node head) 
     { 
-        // Node prev = head;
+        Node prev = head;
         
-        // if(head.next == null) {
-        //     head.data+=1;
-        //     return head;
-        // }
+        if(head.next == null) {
+            head.data+=1;
+            return head;
+        }
         
-        // Node curr = head;
-        // while(curr.next != null) {
-        //     if(curr.data != 9) { prev = curr; }
-        //     curr = curr.next;
-        // }
-        
-        // if(curr.data == 9 && prev != null) {
-        //     curr = prev;
-        //     curr.data += 1;
-        //     curr = curr.next;
-        //     while(curr != null) {
-        //         curr.data = 0;
-        //         curr = curr.next;
-        //     }
-        // } else {
-        //     curr.data += 1;
-        // }
-        // return head;
+        Node curr = head;
+        while(curr.next != null) {
+            if(curr.data != 9) { prev = curr; }
+            curr = curr.next;
+        }
+        // System.out.print(curr.data+" "+prev.data);
+        if(curr.data == 9 && prev != null) {
+            curr = prev;
+            curr.data += 1;
+            curr = curr.next;
+            while(curr != null) {  // 4599+1
+                curr.data = 0;
+                curr = curr.next;
+            }
+        } else {
+            curr.data += 1;
+        }
+        return head;
         
         
         
