@@ -106,7 +106,7 @@ class Solution
         int carry = 1;
         Node first = new Node(0);
         head = reverse(head);
-        first.next = head;
+        // first.next = head;
         Node tail = first;
         
         while(head != null || carry==1) {
