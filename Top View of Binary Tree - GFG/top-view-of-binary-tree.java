@@ -155,8 +155,8 @@ class Solution
             if(node.right!=null) q.add(new Pair(node.right, hd+1));
         }
         
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            res.add(entry.getValue());
+        for(Integer entry : map.values()) {
+            res.add(entry);
         }
         return res;
     }
