@@ -146,7 +146,7 @@ class Solution
         q.add(new Pair(root, 0));
         
         while(!q.isEmpty()) {
-            Pair it = q.remove();
+            Pair it = q.poll();
             int hd = it.hd;
             Node node = it.node;
             
