@@ -69,23 +69,18 @@ class Solution
             priorityQueue.add(arr[i]);
         }
  
-        int index = 0;
-        int[] ans = new int[n];
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        
         for (int i = k + 1; i < n; i++) {
-            ans[index++] = priorityQueue.poll();
+            ans.add(priorityQueue.poll());
             priorityQueue.add(arr[i]);
         }
  
         Iterator<Integer> itr = priorityQueue.iterator();
  
         while (itr.hasNext()) {
-            ans[index++] = priorityQueue.peek();
-            priorityQueue.poll();
+            ans.add(priorityQueue.poll());
         }
-        ArrayList<Integer> intList = new ArrayList<Integer>();
-        for (int i : ans) {
-            intList.add(i);
-        }
-        return intList;
+        return ans;
     }
 }
