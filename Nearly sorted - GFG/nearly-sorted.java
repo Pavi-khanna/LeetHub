@@ -70,8 +70,9 @@ class Solution
         }
  
         int index = 0;
+        int[] ans = new int[n];
         for (int i = k + 1; i < n; i++) {
-            arr[index++] = priorityQueue.peek();
+            ans[index++] = priorityQueue.peek();
             priorityQueue.poll();
             priorityQueue.add(arr[i]);
         }
@@ -79,11 +80,11 @@ class Solution
         Iterator<Integer> itr = priorityQueue.iterator();
  
         while (itr.hasNext()) {
-            arr[index++] = priorityQueue.peek();
+            ans[index++] = priorityQueue.peek();
             priorityQueue.poll();
         }
-        ArrayList<Integer> intList = new ArrayList<Integer>(arr.length);
-        for (int i : arr) {
+        ArrayList<Integer> intList = new ArrayList<Integer>();
+        for (int i : ans) {
             intList.add(i);
         }
         return intList;
