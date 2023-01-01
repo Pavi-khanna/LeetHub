@@ -1,7 +1,6 @@
 # Help Classmates
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Professor X wants his students to help each other in the chemistry lab. He suggests that every student should help out a classmate who scored less marks than him in chemistry and whose roll number appears after him. But the students are lazy and they don't want to search too far. They each pick the first roll number after them that fits the criteria. Find the marks of the classmate that each student picks.<br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Professor X wants his students to help each other in the chemistry lab. He suggests that every student should help out a classmate who scored less marks than him in chemistry and whose roll number appears after him. But the students are lazy and they don't want to search too far. They each pick the first roll number after them that fits the criteria. Find the marks of the classmate that each student picks.<br>
 <strong>Note:</strong> one student may be selected by multiple classmates.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -40,5 +39,4 @@ You don't need to read input or print anything. Complete the function <strong>he
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤ 5*10<sup>5</sup></span></p>
- <p></p>
-            </div>
+</div>
