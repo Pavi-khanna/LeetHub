@@ -51,6 +51,7 @@ class Solution
     // }
     // return res;
     
+    
         // n, n
         int[] res = new int[n];
         // could also save the pair<a[i], i> but y would we want to make it complex
@@ -61,7 +62,7 @@ class Solution
             if(stack.isEmpty()) {
                 res[p++] = 1+i;  // 1 more than i means it has reached beyond 0
             } else if(!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
-                res[p++] = i-stack.peek();    // 
+                res[p++] = i-stack.peek();    // current index - greatest element to left index
             } else if(!stack.isEmpty() && arr[stack.peek()] <= arr[i]) {
                 while(stack.size()>0 && arr[stack.peek()] <= arr[i]) {
                     stack.pop();
