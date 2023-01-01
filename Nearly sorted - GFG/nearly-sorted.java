@@ -34,22 +34,55 @@ class gfg
 class Solution
 {
     //Function to return the sorted array.
-    ArrayList <Integer> nearlySorted(int nums[], int n, int target)
+    ArrayList <Integer> nearlySorted(int arr[], int n, int k)
     {
-        for(int i=1; i<n; i++) {
-            int key = nums[i];
-            int j=i-1;
+        Arrays.sort(arr);
+        ArrayList<Integer> ans = new ArrayList<>();
+        for(int ele : arr) ans.add(ele);
+        return ans;
+        
+        // for(int i=1; i<n; i++) {
+        //     int key = nums[i];
+        //     int j=i-1;
             
-            while(j>=0 && nums[j]>key) {
-                nums[j+1] = nums[j];
-                j--;
-            }
-            nums[j+1] = key;
-        }
-        ArrayList<Integer> intList = new ArrayList<Integer>(nums.length);
-        for (int i : nums) {
-            intList.add(i);
-        }
-        return intList;
+        //     while(j>=0 && nums[j]>key) {
+        //         nums[j+1] = nums[j];
+        //         j--;
+        //     }
+        //     nums[j+1] = key;
+        // }
+        // ArrayList<Integer> intList = new ArrayList<Integer>(nums.length);
+        // for (int i : nums) {
+        //     intList.add(i);
+        // }
+        // return intList;
+        
+        
+        // if (arr == null || arr.length == 0) { return null; }
+        
+        // PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        // int minCount = Math.min(arr.length, k + 1);
+        // for (int i = 0; i < minCount; i++) {
+        //     priorityQueue.add(arr[i]);
+        // }
+ 
+        // int index = 0;
+        // for (int i = k + 1; i < n; i++) {
+        //     arr[index++] = priorityQueue.peek();
+        //     priorityQueue.poll();
+        //     priorityQueue.add(arr[i]);
+        // }
+ 
+        // Iterator<Integer> itr = priorityQueue.iterator();
+ 
+        // while (itr.hasNext()) {
+        //     arr[index++] = priorityQueue.peek();
+        //     priorityQueue.poll();
+        // }
+        // ArrayList<Integer> intList = new ArrayList<Integer>(arr.length);
+        // for (int i : arr) {
+        //     intList.add(i);
+        // }
+        // return intList;
     }
 }
