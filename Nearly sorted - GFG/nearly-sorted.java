@@ -64,8 +64,8 @@ class Solution
         if (arr == null || arr.length == 0) { return null; }
         
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
-        int minCount = Math.min(arr.length, k + 1);
-        for (int i = 0; i < minCount; i++) {
+        
+        for (int i = 0; i < Math.min(arr.length, k + 1); i++) {
             priorityQueue.add(arr[i]);
         }
  
