@@ -72,7 +72,6 @@ class Solution {
                 if(stack.isEmpty()) res[p++] = -1;
                 else res[p++] = stack.peek();
             }
-            
             stack.push(arr[i]);
         }
         // reverse
