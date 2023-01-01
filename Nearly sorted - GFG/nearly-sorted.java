@@ -72,8 +72,7 @@ class Solution
         int index = 0;
         int[] ans = new int[n];
         for (int i = k + 1; i < n; i++) {
-            ans[index++] = priorityQueue.peek();
-            priorityQueue.poll();
+            ans[index++] = priorityQueue.poll();
             priorityQueue.add(arr[i]);
         }
  
