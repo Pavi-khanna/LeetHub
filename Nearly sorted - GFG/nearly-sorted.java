@@ -34,28 +34,31 @@ class gfg
 class Solution
 {
     //Function to return the sorted array.
-    ArrayList <Integer> nearlySorted(int arr[], int n, int k)
+    ArrayList <Integer> nearlySorted(int nums[], int n, int k)
     {
-        Arrays.sort(arr);
-        ArrayList<Integer> ans = new ArrayList<>();
-        for(int ele : arr) ans.add(ele);
-        return ans;
+        // Arrays.sort(arr);
+        // ArrayList<Integer> ans = new ArrayList<>();
+        // for(int ele : arr) ans.add(ele);
+        // return ans;
         
-        // for(int i=1; i<n; i++) {
-        //     int key = nums[i];
-        //     int j=i-1;
+        
+        
+        for(int i=1; i<n; i++) {
+            int key = nums[i];
+            int j=i-1;
             
-        //     while(j>=0 && nums[j]>key) {
-        //         nums[j+1] = nums[j];
-        //         j--;
-        //     }
-        //     nums[j+1] = key;
-        // }
-        // ArrayList<Integer> intList = new ArrayList<Integer>(nums.length);
-        // for (int i : nums) {
-        //     intList.add(i);
-        // }
-        // return intList;
+            while(j>=0 && nums[j]>key) {
+                nums[j+1] = nums[j];
+                j--;
+            }
+            nums[j+1] = key;
+        }
+        ArrayList<Integer> intList = new ArrayList<Integer>(nums.length);
+        for (int i : nums) {
+            intList.add(i);
+        }
+        return intList;
+        
         
         
         // if (arr == null || arr.length == 0) { return null; }
