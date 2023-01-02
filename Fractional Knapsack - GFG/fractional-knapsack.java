@@ -70,7 +70,7 @@ class Solution
                 leftOverWeight -= arr[i].weight;
                 finalValue += arr[i].value;
             } else {
-                finalValue += (double)(arr[i].value)*((double)leftOverWeight/(double)arr[i].weight);
+                finalValue += (double)(leftOverWeight)*((double)arr[i].value/(double)arr[i].weight);
                 break;
             }
         }
