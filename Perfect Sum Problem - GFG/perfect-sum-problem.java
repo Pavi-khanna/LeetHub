@@ -34,34 +34,34 @@ class Solution{
 	   // return sum(arr, n, sum, 0, 0, new ArrayList<>(), new ArrayList<>());
 	   
 	   
-	   //return perfectSum(arr,n, sum, sum);
+	   //return perfectSum2(arr,n, sum);
 	   
 	   
-	   //int[][] t = new int[n+1][sum+1];
-	   //for(int i=0; i<n+1; i++){
-	   //    Arrays.fill(t[i], -1);
-	   //}
-	   //return perfectSum(t,arr,n, sum, sum);
+	   int[][] t = new int[n+1][sum+1];
+	   for(int i=0; i<n+1; i++){
+	       Arrays.fill(t[i], -1);
+	   }
+	   return perfectSum(t,arr,n, sum);
         
 	    
-	    int[][] t = new int[n+1][sum+1];
-        return sum(t, arr);
+	   // int[][] t = new int[n+1][sum+1];
+    //     return sum(t, arr);
 	}
 	
-	public int perfectSum(int arr[],int n, int sum, int k) 
+	public int perfectSum2(int arr[],int n, int k) 
 	{
 	   if(n==0) {
             if(k==0) return 1;
             else return 0;
         }
         if(arr[n-1] > k) {
-            return perfectSum(arr,n-1, sum,k);
+            return perfectSum2(arr,n-1,k);
         } else {
-            return perfectSum(arr,n-1, sum, k-arr[n-1]) + perfectSum(arr,n-1, sum, k);
+            return perfectSum2(arr,n-1, k-arr[n-1]) + perfectSum2(arr,n-1, k);
         }
 	}
 	
-	public int perfectSum(int[][] t, int arr[],int n, int sum, int k) 
+	public int perfectSum(int[][] t, int arr[],int n, int k) 
 	{
 	   int mod =(int) 1e9+7;
 	   if(n==0) {
@@ -72,10 +72,10 @@ class Solution{
         if(t[n][k]!=-1) return t[n][k]%mod;
         
         if(arr[n-1] > k) {
-            t[n][k] = perfectSum(t, arr,n-1, sum,k);
+            t[n][k] = perfectSum(t, arr,n-1,k);
             return t[n][k]%=mod;
         } else {
-            t[n][k] = perfectSum(t, arr,n-1, sum, k-arr[n-1]) + perfectSum(t, arr,n-1, sum, k);
+            t[n][k] = perfectSum(t, arr,n-1, k-arr[n-1]) + perfectSum(t, arr,n-1, k);
             return t[n][k]%=mod;
         }
 	}
