@@ -34,23 +34,24 @@ class GFG
 
 class Solution{
     public Boolean isSubsetSum(int n, int arr[], int sum){
-        // return sum(arr, N, sum, 0, 0, new ArrayList<>(), new ArrayList<>());
+        // return sum(arr, n, sum, 0, 0, new ArrayList<>(), new ArrayList<>());
         
         //  if(n==0) {
         //      if(sum!=0) return false;
         //      else return true;
         //  }
-         
         //  if(arr[n-1] > sum) {
         //      return isSubsetSum(n-1, arr, sum);
         //  } else {
         //      return isSubsetSum(n-1, arr, sum-arr[n-1]) || isSubsetSum(n-1, arr, sum);
         //  }
         
+        
+        // 3 states - true, false, null
         Boolean[][] t = new Boolean[n+1][sum+1];
-        for(int i=0; i<n+1; i++) {
-            Arrays.fill(t[i], null);
-        }
+        // for(int i=0; i<n+1; i++) {
+        //     Arrays.fill(t[i], null);
+        // }
         return isSubsetSum(t, sum, arr, n);
         
         
@@ -63,6 +64,7 @@ class Solution{
          if(n==0 && sum!=0) return false;
          if(n==0) return true;
          
+         // hasnt been touched
          if(t[n][sum] != null) return t[n][sum];
          
          if(arr[n-1] > sum) {
@@ -73,26 +75,25 @@ class Solution{
          }
     }
     
-    // public boolean sum(int arr[], int n, int sum, int i, int s, List<Integer> ds, List<List<Integer>> ans) {
-    //     if(i == n) {
-    //       if(s == sum) {
-    //           // System.out.println(ds);
-    //           // ans.add(new ArrayList<>(ds));
-    //           return true;
-    //       }
-    //       else return false;
-    //     }
+    public boolean sum(int arr[], int n, int sum, int i, int s, List<Integer> ds, List<List<Integer>> ans) {
+        if(i == n) {
+          if(s == sum) {
+              //System.out.println(ds);
+              // ans.add(new ArrayList<>(ds));
+              return true;
+          }
+          else return false;
+        }
         
-    //     ds.add(arr[i]);
-    //     s+=arr[i];
-    //     if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
-    //     ds.remove(ds.size()-1);
-    //     s-=arr[i];
+        ds.add(arr[i]);
+        s+=arr[i];
+        if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
+        ds.remove(ds.size()-1);
+        s-=arr[i];
+        if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
         
-    //     if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
-        
-    //     return false;
-    // }
+        return false;
+    }
     
     public boolean sum(boolean[][] t,int arr[]) {
         int rows = t.length, cols = t[0].length;
