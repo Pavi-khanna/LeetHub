@@ -37,15 +37,15 @@ class Solution{
 	   //return perfectSum(arr,n, sum, sum);
 	   
 	   
-	   int[][] t = new int[n+1][sum+1];
-	   for(int i=0; i<n+1; i++){
-	       Arrays.fill(t[i], -1);
-	   }
-	   return perfectSum(t,arr,n, sum, sum);
+	   //int[][] t = new int[n+1][sum+1];
+	   //for(int i=0; i<n+1; i++){
+	   //    Arrays.fill(t[i], -1);
+	   //}
+	   //return perfectSum(t,arr,n, sum, sum);
         
 	    
-	   // int[][] t = new int[n+1][sum+1];
-       // return sum(t, arr);
+	    int[][] t = new int[n+1][sum+1];
+        return sum(t, arr);
 	}
 	
 	public int perfectSum(int arr[],int n, int sum, int k) 
