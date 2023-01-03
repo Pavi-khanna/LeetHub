@@ -75,7 +75,7 @@ class Solution{
             t[n][k] = perfectSum(t, arr,n-1, sum,k);
             return t[n][k]%=mod;
         } else {
-            t[n][k] = perfectSum(t, arr,n-1, sum, k-arr[n-1]) + perfectSum(t, arr,n-1, sum, k)%mod;
+            t[n][k] = perfectSum(t, arr,n-1, sum, k-arr[n-1]) + perfectSum(t, arr,n-1, sum, k);
             return t[n][k]%=mod;
         }
 	}
