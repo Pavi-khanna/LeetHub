@@ -48,16 +48,15 @@ class Solution{
         
         
         // 3 states - true, false, null
-        Boolean[][] t = new Boolean[n+1][sum+1];
-        // for(int i=0; i<n+1; i++) {
-        //     Arrays.fill(t[i], null);
-        // }
-        return isSubsetSum(t, sum, arr, n);
+        // Boolean[][] t = new Boolean[n+1][sum+1];
+        // // for(int i=0; i<n+1; i++) {
+        // //     Arrays.fill(t[i], null);
+        // // }
+        // return isSubsetSum(t, sum, arr, n);
         
         
-        
-        // boolean[][] t = new boolean[n+1][sum+1];
-        // return sum(t, arr);
+        boolean[][] t = new boolean[n+1][sum+1];
+        return sum(t, arr);
     }
     
      static boolean isSubsetSum(Boolean[][] t, int sum, int arr[], int n) {
