@@ -75,6 +75,23 @@ class Solution{
          }
     }
     
+    public boolean sum(boolean[][] t,int arr[]) {
+        int rows = t.length, cols = t[0].length;
+        for(int j=0; j<cols; j++) t[0][j] = false;
+        for(int i=0; i<rows; i++) t[i][0] = true;
+         
+         for(int i=1; i<rows; i++) {
+             for(int j=1; j<cols; j++) {
+                 if(arr[i-1] > j) {
+                    t[i][j] = t[i-1][j];
+                 } else {
+                    t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
+                 }
+             }
+         }
+         return t[rows-1][cols-1];
+    }
+    
     public boolean sum(int arr[], int n, int sum, int i, int s, List<Integer> ds, List<List<Integer>> ans) {
         if(i == n) {
           if(s == sum) {
@@ -93,22 +110,5 @@ class Solution{
         if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
         
         return false;
-    }
-    
-    public boolean sum(boolean[][] t,int arr[]) {
-        int rows = t.length, cols = t[0].length;
-        for(int j=0; j<cols; j++) t[0][j] = false;
-        for(int i=0; i<rows; i++) t[i][0] = true;
-         
-         for(int i=1; i<rows; i++) {
-             for(int j=1; j<cols; j++) {
-                 if(arr[i-1] > j) {
-                    t[i][j] = t[i-1][j];
-                 } else {
-                    t[i][j] = t[i-1][j-arr[i-1]] || t[i-1][j];
-                 }
-             }
-         }
-         return t[rows-1][cols-1];
     }
 }
