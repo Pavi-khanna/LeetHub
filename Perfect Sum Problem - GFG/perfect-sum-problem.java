@@ -95,7 +95,7 @@ class Solution{
                  t[i][j] %= mod;
              }
          }
-         return t[rows-1][cols-1]%mod;
+         return t[rows-1][cols-1];
     }
     
     public int sum(int arr[], int n, int sum, int i, int s) {
