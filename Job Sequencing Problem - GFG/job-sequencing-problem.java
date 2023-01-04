@@ -62,6 +62,7 @@ class Solution
         int countJobs=0, jobProfit=0;
         for(int i=0; i<n;i++) {
             for(int j=arr[i].deadline; j>0; j--) {
+                // free slot
                 if(res[j] == -1) {
                     res[j] = i;
                     countJobs++;
