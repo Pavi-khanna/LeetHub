@@ -25,7 +25,7 @@ class Solution{
     public int cutRod(int val[], int n) {
         int[] wt = new int[n];
         for(int i=0; i<n; i++) wt[i] = i+1;
-        int W = n;
+        int W = wt.length;
         
         //  if(n==0 || W==0) return 0;
          
