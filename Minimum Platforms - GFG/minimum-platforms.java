@@ -63,9 +63,7 @@ class Solution
                 j++;
             }
             
-            if(platforms>res) {
-                res = platforms;
-            }
+            res = Math.max(res, platforms);
         }
         return res;
     }
