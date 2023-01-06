@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -8,6 +8,7 @@ class Searching
     public static void main (String[] args)throws IOException {
 
         BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out=new PrintWriter(System.out);
         int t = Integer.parseInt(read.readLine());
         
         while(t-- > 0)
@@ -23,12 +24,14 @@ class Searching
                arr[i] = Long.parseLong(st[i]);
            }
            
-           System.out.println(new Solution().findFloor(arr, n, x));
+           out.println(new Solution().findFloor(arr, n, x));
           
         }
+        out.close();
     }
     
-}// } Driver Code Ends
+}
+// } Driver Code Ends
 
 
 class Solution{
