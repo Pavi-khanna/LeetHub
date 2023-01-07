@@ -45,6 +45,41 @@ class GFG {
 
 class Solution {
     public long kthElement( int arr1[], int arr2[], int n, int m, int k) {
+        
+        // int k = 0, i = 0, j = 0;
+
+        // while (i < m && j < n) {
+        //     if (A[i] < B[j]) {
+        //         k++;
+        //         if (k == k_req)
+        //             return A[i];
+        //         i++;
+        //     }
+        //     else {
+        //         k++;
+        //         if (k == k_req)
+        //             return B[j];
+        //         j++;
+        //     }
+        // }
+
+        // while (i < m) {
+        //     k++;
+        //     if (k == k_req)
+        //         return A[i];
+        //     i++;
+        // }
+
+        // while (j < n) {
+        //     k++;
+        //     if (k == k_req)
+        //         return B[j];
+        //     j++;
+        // }
+        // return -1;
+        
+        
+        
         if(n > m) {
         return kthElement(arr2, arr1, m, n, k); 
         }
