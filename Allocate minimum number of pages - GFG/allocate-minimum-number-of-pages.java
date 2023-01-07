@@ -36,7 +36,7 @@ class Solution
     //Function to find minimum number of pages.
     public static int findPages(int[] books,int n,int k)
     {
-        int start = Integer.MIN_VALUE, end = 0;
+        int start = 0, end = 0;
         int res = -1;
 
         if(n < k) return -1;
