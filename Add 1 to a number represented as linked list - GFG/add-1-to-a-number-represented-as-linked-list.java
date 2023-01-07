@@ -78,7 +78,7 @@ class Solution
             curr = prev;
             curr.data += 1;
             curr = curr.next;
-            while(curr != null) {  // 4599+1
+            while(curr != null) {  // 4599+1 = 4600
                 curr.data = 0;
                 curr = curr.next;
             }
@@ -130,13 +130,6 @@ class Solution
         int res = head.data + addWithCarry(head.next);
  
         head.data = (res) % 10;
-        // if(head!=null) {
-        //     System.out.print(head.data+" ");
-        //     if(head.next!=null) {
-        //         System.out.print(head.next.data+" ");
-        //     }
-        // }
-        // System.out.println();
         return (res) / 10;
     }
     
