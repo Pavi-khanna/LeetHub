@@ -89,30 +89,22 @@ class Node{
 
 class Solution{
     Node divide(int N, Node head){
-        Node curr = head, oH=null, eH=null, o=null, e=null;
+        Node curr = head, oH=new Node(0), eH=new Node(0), o=oH, e=eH;
         
         while(curr!=null) {
             int element = curr.data;
             
             if(element%2 == 0) {
-                if(eH==null){
-                    eH=curr; e=eH;
-                } else {
                     e.next=curr; e=e.next;
-                }
             } else {
-                if(oH==null){
-                    oH=curr; o=oH;
-                } else {
                     o.next=curr; o=o.next;
-                }
             }
             curr=curr.next;
         }
         if(e==null || o==null) return head;
         
-        e.next=oH;
+        e.next=oH.next;
         o.next=null;
-        return head=eH;
+        return head=eH.next;
     }
 }
