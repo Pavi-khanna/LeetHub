@@ -80,9 +80,9 @@ class Solution {
         
         
         
-        if(n > m) {
+    if(n > m) {
         return kthElement(arr2, arr1, m, n, k); 
-        }
+    }
         
     int low = Math.max(0,k-m), high = Math.min(k,n);
         
