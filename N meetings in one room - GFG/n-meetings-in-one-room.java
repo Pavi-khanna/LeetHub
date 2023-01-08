@@ -79,7 +79,7 @@ class Solution
         int limit = meet.get(0).end;
         
         // maintain end limit and add to answer while traversing
-        for(int i=1;i<start.length;i++) {
+        for(int i=1;i<meet.size();i++) {
             if(limit<meet.get(i).start) {
                 limit = meet.get(i).end;
                 ans.add(meet.get(i).pos);
