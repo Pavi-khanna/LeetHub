@@ -69,6 +69,20 @@ class Solution{
                 if (!map.containsKey(sum)) map.put(sum, i);
                 if (map.containsKey(sum - k)) maxLen = Math.max(maxLen, i-map.get(sum - k));
              }
+            
+            
+        // while(j<arr.length) {
+        //     sum += arr[j];
+            
+        //     if(sum==k) {
+        //         maxLen = Math.max(maxLen, j-i+1);
+        //     } else if(sum > k) {
+        //         // slide
+        //         sum -= arr[i];
+        //         i++;
+        //     }
+        //     j++;
+        // }
         return maxLen;
     }
     
