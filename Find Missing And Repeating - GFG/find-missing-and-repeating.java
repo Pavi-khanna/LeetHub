@@ -41,7 +41,6 @@ class Solve {
         // for(int i=0; i<len; i++) {
         //     counter[arr[i]-1]++;
         // }
-        
         // for(int i=0; i<len; i++) {
         //     if(counter[i] == 0) missing = i+1;
         //     if(counter[i] > 1) repeat = i+1;
