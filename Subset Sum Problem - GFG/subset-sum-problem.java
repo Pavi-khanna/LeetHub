@@ -47,31 +47,8 @@ class Solution{
         //  }
         
         
-        // 3 states - true, false, null
-        // Boolean[][] t = new Boolean[n+1][sum+1];
-        // // for(int i=0; i<n+1; i++) {
-        // //     Arrays.fill(t[i], null);
-        // // }
-        // return isSubsetSum(t, sum, arr, n);
-        
-        
         boolean[][] t = new boolean[n+1][sum+1];
         return sum(t, arr);
-    }
-    
-     static boolean isSubsetSum(Boolean[][] t, int sum, int arr[], int n) {
-         if(n==0 && sum!=0) return false;
-         if(n==0) return true;
-         
-         // hasnt been touched
-         if(t[n][sum] != null) return t[n][sum];
-         
-         if(arr[n-1] > sum) {
-             return t[n][sum] = isSubsetSum(t, sum, arr, n-1);
-         } else {
-             return t[n][sum] = isSubsetSum(t, sum-arr[n-1], arr, n-1) || 
-             isSubsetSum(t, sum, arr, n-1);
-         }
     }
     
     public boolean sum(boolean[][] t,int arr[]) {
@@ -89,25 +66,5 @@ class Solution{
              }
          }
          return t[rows-1][cols-1];
-    }
-    
-    public boolean sum(int arr[], int n, int sum, int i, int s, List<Integer> ds, List<List<Integer>> ans) {
-        if(i == n) {
-          if(s == sum) {
-              //System.out.println(ds);
-              // ans.add(new ArrayList<>(ds));
-              return true;
-          }
-          else return false;
-        }
-        
-        ds.add(arr[i]);
-        s+=arr[i];
-        if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
-        ds.remove(ds.size()-1);
-        s-=arr[i];
-        if(sum(arr,n,sum,i+1,s,ds,ans)) return true;
-        
-        return false;
     }
 }
